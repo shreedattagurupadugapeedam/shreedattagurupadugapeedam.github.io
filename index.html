@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ta">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sri Datta Guru Paduka Peedam</title>
+  <title>Shree Datta Paduga Peedam · ஶ்ரீ தத்த பாதுகா பீடம்</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -24,6 +24,43 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Cormorant Garamond', Georgia, serif; background: var(--cream); color: var(--deep); }
 
+    /* Tamil-specific font when language is Tamil */
+    html[lang="ta"] body,
+    html[lang="ta"] .about-text,
+    html[lang="ta"] .card p,
+    html[lang="ta"] .timings-table td,
+    html[lang="ta"] .contact-item p,
+    html[lang="ta"] .datta-card p,
+    html[lang="ta"] .timings-note {
+      font-family: 'Noto Serif Tamil', 'Cormorant Garamond', Georgia, serif;
+    }
+    html[lang="ta"] .nav-logo,
+    html[lang="ta"] .nav-links a,
+    html[lang="ta"] .hero h1,
+    html[lang="ta"] .hero-sub,
+    html[lang="ta"] .section-title,
+    html[lang="ta"] .section-under,
+    html[lang="ta"] .card h4,
+    html[lang="ta"] .datta-card h3,
+    html[lang="ta"] .tab-btn,
+    html[lang="ta"] .timings-table th,
+    html[lang="ta"] .contact-item h4,
+    html[lang="ta"] .contact-tagline,
+    html[lang="ta"] .footer-om,
+    html[lang="ta"] .hero-cta {
+      font-family: 'Noto Sans Tamil', 'Cinzel', serif;
+      letter-spacing: 0.04em;
+    }
+
+    /* Show/hide based on lang */
+    [data-lang] { display: none; }
+    html[lang="en"] [data-lang="en"] { display: inherit; }
+    html[lang="ta"] [data-lang="ta"] { display: inherit; }
+    /* Inline elements need inline display */
+    span[data-lang], a[data-lang] { display: none; }
+    html[lang="en"] span[data-lang="en"], html[lang="en"] a[data-lang="en"] { display: inline; }
+    html[lang="ta"] span[data-lang="ta"], html[lang="ta"] a[data-lang="ta"] { display: inline; }
+
     /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
@@ -33,6 +70,7 @@
       border-bottom: 1px solid var(--gold);
     }
     .nav-logo { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; letter-spacing: 0.08em; padding: 14px 0; line-height: 1.45; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
     .nav-links { display: flex; gap: 28px; }
     .nav-links a {
       color: var(--gold-pale); font-family: 'Cinzel', serif; font-size: 11px;
@@ -41,6 +79,25 @@
       transition: color 0.2s, border-color 0.2s; cursor: pointer;
     }
     .nav-links a:hover, .nav-links a.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex; align-items: center; gap: 4px;
+      background: transparent; border: 1px solid var(--gold);
+      border-radius: 999px; overflow: hidden;
+      font-family: 'Cinzel', serif;
+    }
+    .lang-toggle button {
+      background: transparent; color: var(--gold-pale);
+      border: none; padding: 6px 14px; font-size: 11px;
+      letter-spacing: 0.1em; cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-toggle button.tamil-btn { font-family: 'Noto Sans Tamil', serif; font-size: 13px; }
+    .lang-toggle button.active { background: var(--gold); color: var(--deep); font-weight: 600; }
+    .lang-toggle button:hover:not(.active) { color: var(--gold-light); }
+
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
     .hamburger span { width: 22px; height: 2px; background: var(--gold); border-radius: 2px; transition: all 0.3s; }
 
@@ -54,7 +111,7 @@
       position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
       width: 440px; height: 440px; opacity: 0.07; pointer-events: none;
     }
-    .hero-content { position: relative; z-index: 2; max-width: 660px; }
+    .hero-content { position: relative; z-index: 2; max-width: 720px; }
     .om-symbol { font-size: 52px; color: var(--gold); line-height: 1; margin-bottom: 20px; animation: glow 3s ease-in-out infinite alternate; }
     @keyframes glow { from { opacity: 0.65; } to { opacity: 1; } }
     .hero h1 { font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 30px; font-weight: 700; letter-spacing: 0.06em; line-height: 1.35; margin-bottom: 10px; }
@@ -114,6 +171,7 @@
     .timings-table td { padding: 13px 16px; font-size: 15px; color: var(--mid); border-bottom: 1px solid rgba(61,31,0,0.1); }
     .timings-table tr:last-child td { border-bottom: none; }
     .tag { display: inline-block; font-size: 11px; font-family: 'Cinzel', serif; letter-spacing: 0.08em; padding: 2px 10px; background: rgba(212,100,10,0.12); color: var(--saffron); }
+    html[lang="ta"] .tag { font-family: 'Noto Sans Tamil', serif; }
     .timings-note { margin-top: 28px; padding: 22px 24px; border: 1px solid rgba(200,149,42,0.25); font-style: italic; color: var(--muted); font-size: 15px; line-height: 1.75; }
 
     /* ── CONTACT ── */
@@ -128,7 +186,8 @@
     footer p { color: var(--gold-pale); font-size: 13px; opacity: 0.6; margin-top: 8px; }
 
     /* ── MOBILE ── */
-    @media (max-width: 640px) {
+    @media (max-width: 760px) {
+      nav { padding: 0 1.25rem; }
       .hero h1 { font-size: 21px; }
       .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--deep); padding: 1rem 2rem 1.5rem; gap: 0; border-bottom: 1px solid var(--gold); }
       .nav-links.open { display: flex; }
@@ -137,6 +196,8 @@
       .datta-card { flex-direction: column; gap: 16px; }
       .contact-grid { grid-template-columns: 1fr; gap: 24px; }
       nav { position: relative; }
+      .nav-right { gap: 12px; }
+      .lang-toggle button { padding: 5px 10px; font-size: 10px; }
     }
   </style>
 </head>
@@ -144,16 +205,35 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Sri Datta Guru<br>Paduka Peedam</div>
-  <div class="nav-links" id="navLinks">
-    <a class="active" onclick="showPage('home',this)">Home</a>
-    <a onclick="showPage('about',this)">About</a>
-    <a onclick="showPage('seva',this)">Seva</a>
-    <a onclick="showPage('timings',this)">Timings</a>
-    <a onclick="showPage('contact',this)">Contact</a>
+  <div class="nav-logo">
+    <span data-lang="en">Shree Datta<br>Paduga Peedam</span>
+    <span data-lang="ta">ஶ்ரீ தத்த<br>பாதுகா பீடம்</span>
   </div>
-  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
+  <div class="nav-right">
+    <div class="nav-links" id="navLinks">
+      <a class="active" onclick="showPage('home',this)">
+        <span data-lang="en">Home</span><span data-lang="ta">முகப்பு</span>
+      </a>
+      <a onclick="showPage('about',this)">
+        <span data-lang="en">About</span><span data-lang="ta">பற்றி</span>
+      </a>
+      <a onclick="showPage('seva',this)">
+        <span data-lang="en">Seva</span><span data-lang="ta">சேவை</span>
+      </a>
+      <a onclick="showPage('timings',this)">
+        <span data-lang="en">Timings</span><span data-lang="ta">நேரங்கள்</span>
+      </a>
+      <a onclick="showPage('contact',this)">
+        <span data-lang="en">Contact</span><span data-lang="ta">தொடர்பு</span>
+      </a>
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language toggle">
+      <button id="btn-ta" class="tamil-btn active" onclick="setLang('ta')" aria-pressed="true">தமிழ்</button>
+      <button id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
@@ -179,13 +259,22 @@
     </svg>
     <div class="hero-content">
       <div class="om-symbol">ॐ</div>
-      <h1>Sri Datta Guru Paduka Peedam</h1>
-      <div class="hero-sub">A Sacred Abode of Lord Dattatreya</div>
-      <div class="hero-verse">
+      <h1 data-lang="en">Shree Datta Paduga Peedam</h1>
+      <h1 data-lang="ta">ஶ்ரீ தத்த பாதுகா பீடம்</h1>
+      <div class="hero-sub" data-lang="en">A Sacred Abode of Lord Dattatreya</div>
+      <div class="hero-sub" data-lang="ta">பகவான் தத்தாத்ரேயரின் புனித இருப்பிடம்</div>
+      <div class="hero-verse" data-lang="en">
         "Gurur Brahma, Gurur Vishnu, Gurur Devo Maheshvarah<br>
         Guru Sakshat Param Brahma, Tasmai Sri Gurave Namah"
       </div>
-      <button class="hero-cta" onclick="showPage('about', document.querySelectorAll('.nav-links a')[1])">Enter the Peedam</button>
+      <div class="hero-verse" data-lang="ta">
+        "குருர் ப்ரஹ்மா, குருர் விஷ்ணு, குரு தேவோ மஹேஸ்வரஃ<br>
+        குரு சாக்ஷாத் பரம் ப்ரஹ்மா, தஸ்மை ஶ்ரீ குரவே நமஃ"
+      </div>
+      <button class="hero-cta" onclick="showPage('about', document.querySelectorAll('.nav-links a')[1])">
+        <span data-lang="en">Enter the Peedam</span>
+        <span data-lang="ta">பீடத்திற்குள் நுழையுங்கள்</span>
+      </button>
     </div>
   </div>
 
@@ -195,23 +284,31 @@
     <div class="card-grid">
       <div class="card">
         <div class="card-icon">🪔</div>
-        <h4>Daily Puja</h4>
-        <p>Morning and evening arati performed with devotion every day of the year.</p>
+        <h4 data-lang="en">Daily Puja</h4>
+        <h4 data-lang="ta">தினசரி பூஜை</h4>
+        <p data-lang="en">Morning and evening arati performed with devotion every day of the year.</p>
+        <p data-lang="ta">ஆண்டின் ஒவ்வொரு நாளும் காலை மற்றும் மாலை ஆரத்தி பக்தியுடன் செய்யப்படுகிறது.</p>
       </div>
       <div class="card">
         <div class="card-icon">📿</div>
-        <h4>Guru Purnima</h4>
-        <p>Grand celebrations honouring the Datta Guru lineage with special rituals.</p>
+        <h4 data-lang="en">Guru Purnima</h4>
+        <h4 data-lang="ta">குரு பூர்ணிமா</h4>
+        <p data-lang="en">Grand celebrations honouring the Datta Guru lineage with special rituals.</p>
+        <p data-lang="ta">தத்த குரு பரம்பரையை சிறப்பு சடங்குகளுடன் கௌரவிக்கும் பெருங்கொண்டாட்டம்.</p>
       </div>
       <div class="card">
         <div class="card-icon">🌿</div>
-        <h4>Satsang</h4>
-        <p>Weekly spiritual discourses, bhajans, and group meditation open to all.</p>
+        <h4 data-lang="en">Satsang</h4>
+        <h4 data-lang="ta">சத்சங்கம்</h4>
+        <p data-lang="en">Weekly spiritual discourses, bhajans, and group meditation open to all.</p>
+        <p data-lang="ta">அனைவருக்கும் திறந்த வாரந்தோறும் ஆன்மீக சொற்பொழிவுகள், பஜனைகள் மற்றும் குழு தியானம்.</p>
       </div>
       <div class="card">
         <div class="card-icon">🙏</div>
-        <h4>Paduka Seva</h4>
-        <p>Revered worship of the sacred Padukas — the divine footprints of the Guru.</p>
+        <h4 data-lang="en">Paduga Seva</h4>
+        <h4 data-lang="ta">பாதுகா சேவை</h4>
+        <p data-lang="en">Revered worship of the sacred Padugas — the divine footprints of the Guru.</p>
+        <p data-lang="ta">புனித பாதுகைகளின் வழிபாடு — குருவின் தெய்வீக பாதச்சுவடுகள்.</p>
       </div>
     </div>
   </div>
@@ -220,18 +317,29 @@
 <!-- ABOUT -->
 <div id="page-about" class="page">
   <div class="section">
-    <div class="section-title">The Peedam</div>
-    <div class="section-under">Our Sacred Heritage</div>
-    <div class="about-text">
-      <p><span class="highlight">Sri Datta Guru Paduka Peedam</span> is a sacred spiritual centre established in the living tradition of Lord Dattatreya — the divine trinity of Brahma, Vishnu, and Shiva united in one form. The Peedam exists as a place where seekers of all paths may draw near to the eternal flame of Guru's grace.</p>
-      <p>The Paduka — the holy sandals of the Guru — are venerated here as the very presence of the living Master. Through the worship of the Padukas, devotees receive divine blessings, protection on their spiritual journey, and the dissolution of obstacles placed by karma.</p>
+    <div class="section-title" data-lang="en">The Peedam</div>
+    <div class="section-title" data-lang="ta">பீடம்</div>
+    <div class="section-under" data-lang="en">Our Sacred Heritage</div>
+    <div class="section-under" data-lang="ta">எங்கள் புனித பாரம்பரியம்</div>
+
+    <div class="about-text" data-lang="en">
+      <p><span class="highlight">Shree Datta Paduga Peedam</span> is a sacred spiritual centre established in the living tradition of Lord Dattatreya — the divine trinity of Brahma, Vishnu, and Shiva united in one form. The Peedam exists as a place where seekers of all paths may draw near to the eternal flame of Guru's grace.</p>
+      <p>The Paduga — the holy sandals of the Guru — are venerated here as the very presence of the living Master. Through the worship of the Padugas, devotees receive divine blessings, protection on their spiritual journey, and the dissolution of obstacles placed by karma.</p>
       <p>Our centre welcomes all souls regardless of background or tradition. Whether you come for the first time or have walked this path for decades, <span class="highlight">the Guru's grace makes no distinction</span>. The door of the Peedam is always open.</p>
     </div>
+    <div class="about-text" data-lang="ta">
+      <p><span class="highlight">ஶ்ரீ தத்த பாதுகா பீடம்</span> பகவான் தத்தாத்ரேயரின் வாழும் பாரம்பரியத்தில் நிறுவப்பட்ட புனித ஆன்மீக மையமாகும் — பிரம்மா, விஷ்ணு மற்றும் சிவன் ஒரே வடிவில் இணைந்த தெய்வீக மும்மூர்த்தி. அனைத்து வழிகளில் உள்ள தேடுபவர்களும் குருவின் அருளின் நித்திய சுடருக்கு அருகில் வரக்கூடிய இடமாக இந்த பீடம் விளங்குகிறது.</p>
+      <p>பாதுகை — குருவின் புனித செருப்புகள் — வாழும் குருவின் நேரடி இருப்பாக இங்கு வழிபடப்படுகின்றன. பாதுகைகளை வழிபடுவதன் மூலம், பக்தர்கள் தெய்வீக ஆசீர்வாதங்களை, தங்கள் ஆன்மீக பயணத்தில் பாதுகாப்பை, மற்றும் கர்மாவால் ஏற்படும் தடைகளின் கலைவைப் பெறுகிறார்கள்.</p>
+      <p>எங்கள் மையம் பின்னணி அல்லது பாரம்பரியத்தைப் பொருட்படுத்தாமல் அனைத்து ஆன்மாக்களையும் வரவேற்கிறது. நீங்கள் முதன்முறையாக வந்தாலும் அல்லது பல தசாப்தங்களாக இந்த பாதையில் நடந்து வந்தாலும், <span class="highlight">குருவின் அருள் வேற்றுமை பாராட்டுவதில்லை</span>. பீடத்தின் வாயில் எப்போதும் திறந்தே உள்ளது.</p>
+    </div>
+
     <div class="datta-card">
       <div class="datta-icon">🔱</div>
       <div>
-        <h3>Lord Dattatreya — The Adi Guru</h3>
-        <p>Dattatreya is revered as the first Guru of all creation — born to sage Atri and Anasuya, embodying the combined essence of the Trimurti. He is depicted with three heads representing Brahma, Vishnu, and Shiva, accompanied by four dogs and a cow, symbolising the four Vedas and the earth. His teaching is the teaching of life itself.</p>
+        <h3 data-lang="en">Lord Dattatreya — The Adi Guru</h3>
+        <h3 data-lang="ta">பகவான் தத்தாத்ரேயர் — ஆதி குரு</h3>
+        <p data-lang="en">Dattatreya is revered as the first Guru of all creation — born to sage Atri and Anasuya, embodying the combined essence of the Trimurti. He is depicted with three heads representing Brahma, Vishnu, and Shiva, accompanied by four dogs and a cow, symbolising the four Vedas and the earth. His teaching is the teaching of life itself.</p>
+        <p data-lang="ta">தத்தாத்ரேயர் அனைத்து படைப்பின் முதல் குருவாக போற்றப்படுகிறார் — அத்ரி முனிவருக்கும் அனசூயைக்கும் பிறந்த, மும்மூர்த்திகளின் ஒன்றிணைந்த சாரத்தை வெளிப்படுத்துபவர். பிரம்மா, விஷ்ணு மற்றும் சிவனை குறிக்கும் மூன்று தலைகளுடன், நான்கு வேதங்களையும் பூமியையும் குறிக்கும் நான்கு நாய்கள் மற்றும் ஒரு பசுவுடன் சித்தரிக்கப்படுகிறார். அவருடைய போதனை வாழ்க்கையின் போதனையே ஆகும்.</p>
       </div>
     </div>
   </div>
@@ -240,35 +348,107 @@
 <!-- SEVA -->
 <div id="page-seva" class="page">
   <div class="section">
-    <div class="section-title">Seva &amp; Programmes</div>
-    <div class="section-under">Ways to Participate</div>
+    <div class="section-title" data-lang="en">Seva &amp; Programmes</div>
+    <div class="section-title" data-lang="ta">சேவை &amp; நிகழ்ச்சிகள்</div>
+    <div class="section-under" data-lang="en">Ways to Participate</div>
+    <div class="section-under" data-lang="ta">பங்கேற்கும் வழிகள்</div>
+
     <div class="tabs">
-      <button class="tab-btn active" onclick="showTab('rituals',this)">Rituals</button>
-      <button class="tab-btn" onclick="showTab('festivals',this)">Festivals</button>
-      <button class="tab-btn" onclick="showTab('satsang',this)">Satsang</button>
+      <button class="tab-btn active" onclick="showTab('rituals',this)">
+        <span data-lang="en">Rituals</span><span data-lang="ta">சடங்குகள்</span>
+      </button>
+      <button class="tab-btn" onclick="showTab('festivals',this)">
+        <span data-lang="en">Festivals</span><span data-lang="ta">திருவிழாக்கள்</span>
+      </button>
+      <button class="tab-btn" onclick="showTab('satsang',this)">
+        <span data-lang="en">Satsang</span><span data-lang="ta">சத்சங்கம்</span>
+      </button>
     </div>
+
     <div id="tab-rituals" class="tab-panel active">
       <div class="card-grid">
-        <div class="card"><div class="card-icon">🌅</div><h4>Prabhata Puja</h4><p>Morning worship at sunrise — awakening the deity with Vedic hymns and offerings.</p></div>
-        <div class="card"><div class="card-icon">🕯️</div><h4>Sayam Arati</h4><p>Evening lamp offering performed at dusk with devotional singing.</p></div>
-        <div class="card"><div class="card-icon">🌸</div><h4>Abhishekam</h4><p>Sacred bathing of the deity with milk, honey, and sacred waters on special occasions.</p></div>
-        <div class="card"><div class="card-icon">📿</div><h4>Sahasranama Archana</h4><p>Chanting of the thousand names of Lord Dattatreya — offered on auspicious days.</p></div>
+        <div class="card">
+          <div class="card-icon">🌅</div>
+          <h4 data-lang="en">Prabhata Puja</h4><h4 data-lang="ta">பிரபாத பூஜை</h4>
+          <p data-lang="en">Morning worship at sunrise — awakening the deity with Vedic hymns and offerings.</p>
+          <p data-lang="ta">சூரிய உதயத்தில் காலை வழிபாடு — வேத மந்திரங்கள் மற்றும் காணிக்கைகளுடன் இறைவனை எழுப்புதல்.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🕯️</div>
+          <h4 data-lang="en">Sayam Arati</h4><h4 data-lang="ta">சாயம் ஆரத்தி</h4>
+          <p data-lang="en">Evening lamp offering performed at dusk with devotional singing.</p>
+          <p data-lang="ta">அந்தி நேரத்தில் பக்தி பாடல்களுடன் செய்யப்படும் மாலை விளக்கு காணிக்கை.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌸</div>
+          <h4 data-lang="en">Abhishekam</h4><h4 data-lang="ta">அபிஷேகம்</h4>
+          <p data-lang="en">Sacred bathing of the deity with milk, honey, and sacred waters on special occasions.</p>
+          <p data-lang="ta">சிறப்பு நாட்களில் பால், தேன் மற்றும் புனித நீரால் இறைவனுக்கு செய்யப்படும் புனித அபிஷேகம்.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📿</div>
+          <h4 data-lang="en">Sahasranama Archana</h4><h4 data-lang="ta">சகஸ்ரநாம அர்ச்சனை</h4>
+          <p data-lang="en">Chanting of the thousand names of Lord Dattatreya — offered on auspicious days.</p>
+          <p data-lang="ta">பகவான் தத்தாத்ரேயரின் ஆயிரம் நாமங்களை சுபமான நாட்களில் ஓதுதல்.</p>
+        </div>
       </div>
     </div>
+
     <div id="tab-festivals" class="tab-panel">
       <div class="card-grid">
-        <div class="card"><div class="card-icon">🌕</div><h4>Guru Purnima</h4><p>The holiest day — a grand celebration of the Guru-disciple bond, with special puja and discourse.</p></div>
-        <div class="card"><div class="card-icon">✨</div><h4>Datta Jayanti</h4><p>The birthday of Lord Dattatreya observed with all-night kirtan and prasad distribution.</p></div>
-        <div class="card"><div class="card-icon">🪔</div><h4>Deepavali</h4><p>Festival of lights celebrated with lamp seva and community gathering.</p></div>
-        <div class="card"><div class="card-icon">🌿</div><h4>Navaratri</h4><p>Nine nights of devotion — special programmes each evening through the festival.</p></div>
+        <div class="card">
+          <div class="card-icon">🌕</div>
+          <h4 data-lang="en">Guru Purnima</h4><h4 data-lang="ta">குரு பூர்ணிமா</h4>
+          <p data-lang="en">The holiest day — a grand celebration of the Guru-disciple bond, with special puja and discourse.</p>
+          <p data-lang="ta">மிகவும் புனிதமான நாள் — குரு-சீட பந்தத்தின் பெருங்கொண்டாட்டம், சிறப்பு பூஜை மற்றும் சொற்பொழிவுடன்.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✨</div>
+          <h4 data-lang="en">Datta Jayanti</h4><h4 data-lang="ta">தத்த ஜெயந்தி</h4>
+          <p data-lang="en">The birthday of Lord Dattatreya observed with all-night kirtan and prasad distribution.</p>
+          <p data-lang="ta">பகவான் தத்தாத்ரேயரின் ஜென்ம தினம் — இரவு முழுவதும் கீர்த்தனை மற்றும் பிரசாத விநியோகத்துடன் கொண்டாடப்படுகிறது.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🪔</div>
+          <h4 data-lang="en">Deepavali</h4><h4 data-lang="ta">தீபாவளி</h4>
+          <p data-lang="en">Festival of lights celebrated with lamp seva and community gathering.</p>
+          <p data-lang="ta">விளக்கு சேவை மற்றும் சமூக கூடலுடன் கொண்டாடப்படும் ஒளித்திருநாள்.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌿</div>
+          <h4 data-lang="en">Navaratri</h4><h4 data-lang="ta">நவராத்திரி</h4>
+          <p data-lang="en">Nine nights of devotion — special programmes each evening through the festival.</p>
+          <p data-lang="ta">ஒன்பது இரவுகள் பக்தி — திருவிழாவின் ஒவ்வொரு மாலையிலும் சிறப்பு நிகழ்ச்சிகள்.</p>
+        </div>
       </div>
     </div>
+
     <div id="tab-satsang" class="tab-panel">
       <div class="card-grid">
-        <div class="card"><div class="card-icon">🪈</div><h4>Bhajan Satsang</h4><p>Every Sunday evening — devotional singing open to all. No experience necessary.</p></div>
-        <div class="card"><div class="card-icon">📖</div><h4>Discourse</h4><p>Scriptural readings from the Guru Charitra and Avadhuta Gita on the 1st of each month.</p></div>
-        <div class="card"><div class="card-icon">🧘</div><h4>Dhyana Shibir</h4><p>Meditation retreats held quarterly — register at the centre in advance.</p></div>
-        <div class="card"><div class="card-icon">🌱</div><h4>Anna Seva</h4><p>Free meal offered to all visitors every Thursday, the auspicious day of Guru.</p></div>
+        <div class="card">
+          <div class="card-icon">🪈</div>
+          <h4 data-lang="en">Bhajan Satsang</h4><h4 data-lang="ta">பஜனை சத்சங்கம்</h4>
+          <p data-lang="en">Every Sunday evening — devotional singing open to all. No experience necessary.</p>
+          <p data-lang="ta">ஒவ்வொரு ஞாயிறு மாலையும் — அனைவருக்கும் திறந்த பக்திப் பாடல்கள். அனுபவம் தேவையில்லை.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📖</div>
+          <h4 data-lang="en">Discourse</h4><h4 data-lang="ta">சொற்பொழிவு</h4>
+          <p data-lang="en">Scriptural readings from the Guru Charitra and Avadhuta Gita on the 1st of each month.</p>
+          <p data-lang="ta">ஒவ்வொரு மாதத்தின் 1ஆம் தேதி குரு சரிதம் மற்றும் அவதூத கீதையிலிருந்து வாசிப்பு.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧘</div>
+          <h4 data-lang="en">Dhyana Shibir</h4><h4 data-lang="ta">தியான சிபிரம்</h4>
+          <p data-lang="en">Meditation retreats held quarterly — register at the centre in advance.</p>
+          <p data-lang="ta">காலாண்டுக்கு ஒருமுறை தியான முகாம்கள் — மையத்தில் முன்கூட்டியே பதிவு செய்யவும்.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌱</div>
+          <h4 data-lang="en">Anna Seva</h4><h4 data-lang="ta">அன்ன சேவை</h4>
+          <p data-lang="en">Free meal offered to all visitors every Thursday, the auspicious day of Guru.</p>
+          <p data-lang="ta">குருவின் சுபமான நாளான ஒவ்வொரு வியாழக்கிழமையும் அனைத்து பக்தர்களுக்கும் இலவச உணவு வழங்கப்படுகிறது.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -277,26 +457,64 @@
 <!-- TIMINGS -->
 <div id="page-timings" class="page">
   <div class="section">
-    <div class="section-title">Darshan Timings</div>
-    <div class="section-under">Temple Hours</div>
+    <div class="section-title" data-lang="en">Darshan Timings</div>
+    <div class="section-title" data-lang="ta">தரிசன நேரங்கள்</div>
+    <div class="section-under" data-lang="en">Temple Hours</div>
+    <div class="section-under" data-lang="ta">கோயில் நேரங்கள்</div>
+
     <div class="timings-wrap">
       <table class="timings-table">
         <thead>
-          <tr><th>Session</th><th>Time</th><th>Days</th></tr>
+          <tr>
+            <th><span data-lang="en">Session</span><span data-lang="ta">அமர்வு</span></th>
+            <th><span data-lang="en">Time</span><span data-lang="ta">நேரம்</span></th>
+            <th><span data-lang="en">Days</span><span data-lang="ta">நாட்கள்</span></th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>Morning Darshan</td><td>6:00 AM – 12:00 PM</td><td>Daily</td></tr>
-          <tr><td>Afternoon (Closed)</td><td>12:00 PM – 4:00 PM</td><td>Daily</td></tr>
-          <tr><td>Evening Darshan</td><td>4:00 PM – 8:30 PM</td><td>Daily</td></tr>
-          <tr><td>Prabhata Puja</td><td>6:30 AM</td><td>Daily</td></tr>
-          <tr><td>Sayam Arati</td><td>7:30 PM</td><td>Daily</td></tr>
-          <tr><td>Bhajan Satsang</td><td>6:00 PM – 7:30 PM</td><td><span class="tag">Sunday</span></td></tr>
-          <tr><td>Anna Seva (Free Lunch)</td><td>12:00 PM (before closing)</td><td><span class="tag">Thursday</span></td></tr>
+          <tr>
+            <td><span data-lang="en">Morning Darshan</span><span data-lang="ta">காலை தரிசனம்</span></td>
+            <td>6:00 AM &ndash; 12:00 PM</td>
+            <td><span data-lang="en">Daily</span><span data-lang="ta">தினமும்</span></td>
+          </tr>
+          <tr>
+            <td><span data-lang="en">Afternoon (Closed)</span><span data-lang="ta">மதியம் (மூடப்பட்டுள்ளது)</span></td>
+            <td>12:00 PM &ndash; 4:00 PM</td>
+            <td><span data-lang="en">Daily</span><span data-lang="ta">தினமும்</span></td>
+          </tr>
+          <tr>
+            <td><span data-lang="en">Evening Darshan</span><span data-lang="ta">மாலை தரிசனம்</span></td>
+            <td>4:00 PM &ndash; 8:30 PM</td>
+            <td><span data-lang="en">Daily</span><span data-lang="ta">தினமும்</span></td>
+          </tr>
+          <tr>
+            <td><span data-lang="en">Prabhata Puja</span><span data-lang="ta">பிரபாத பூஜை</span></td>
+            <td>6:30 AM</td>
+            <td><span data-lang="en">Daily</span><span data-lang="ta">தினமும்</span></td>
+          </tr>
+          <tr>
+            <td><span data-lang="en">Sayam Arati</span><span data-lang="ta">சாயம் ஆரத்தி</span></td>
+            <td>7:30 PM</td>
+            <td><span data-lang="en">Daily</span><span data-lang="ta">தினமும்</span></td>
+          </tr>
+          <tr>
+            <td><span data-lang="en">Bhajan Satsang</span><span data-lang="ta">பஜனை சத்சங்கம்</span></td>
+            <td>6:00 PM &ndash; 7:30 PM</td>
+            <td><span class="tag"><span data-lang="en">Sunday</span><span data-lang="ta">ஞாயிறு</span></span></td>
+          </tr>
+          <tr>
+            <td><span data-lang="en">Anna Seva (Free Lunch)</span><span data-lang="ta">அன்ன சேவை (இலவச மதிய உணவு)</span></td>
+            <td><span data-lang="en">12:00 PM (before closing)</span><span data-lang="ta">மதியம் 12:00 (மூடுவதற்கு முன்)</span></td>
+            <td><span class="tag"><span data-lang="en">Thursday</span><span data-lang="ta">வியாழன்</span></span></td>
+          </tr>
         </tbody>
       </table>
     </div>
-    <div class="timings-note">
+    <div class="timings-note" data-lang="en">
       Special timings apply on festival days and Ekadashi. Please contact the centre or follow our notice board for updates during major celebrations such as Guru Purnima and Datta Jayanti.
+    </div>
+    <div class="timings-note" data-lang="ta">
+      திருவிழா நாட்கள் மற்றும் ஏகாதசி அன்று சிறப்பு நேரங்கள் பின்பற்றப்படும். குரு பூர்ணிமா மற்றும் தத்த ஜெயந்தி போன்ற பெரும் கொண்டாட்டங்களின் போது புதுப்பிப்புகளுக்கு மையத்தைத் தொடர்பு கொள்ளவும் அல்லது எங்கள் அறிவிப்புப் பலகையைப் பாருங்கள்.
     </div>
   </div>
 </div>
@@ -304,38 +522,61 @@
 <!-- CONTACT -->
 <div id="page-contact" class="page">
   <div class="section">
-    <div class="section-title">Visit &amp; Connect</div>
-    <div class="section-under">We Welcome You</div>
+    <div class="section-title" data-lang="en">Visit &amp; Connect</div>
+    <div class="section-title" data-lang="ta">வந்து சேருங்கள் &amp; தொடர்பு</div>
+    <div class="section-under" data-lang="en">We Welcome You</div>
+    <div class="section-under" data-lang="ta">உங்களை வரவேற்கிறோம்</div>
+
     <div class="contact-grid">
       <div class="contact-item">
-        <h4>📍 Location</h4>
-        <p>Sri Datta Guru Paduka Peedam<br>[Your Address Line 1]<br>[City, State, PIN]</p>
+        <h4>📍 <span data-lang="en">Location</span><span data-lang="ta">இடம்</span></h4>
+        <p data-lang="en">Shree Datta Paduga Peedam<br>[Your Address Line 1]<br>[City, State, PIN]</p>
+        <p data-lang="ta">ஶ்ரீ தத்த பாதுகா பீடம்<br>[உங்கள் முகவரி வரி 1]<br>[நகரம், மாநிலம், பின்கோடு]</p>
       </div>
       <div class="contact-item">
-        <h4>📞 Phone</h4>
-        <p>[Your Phone Number]<br>Available during darshan hours</p>
+        <h4>📞 <span data-lang="en">Phone</span><span data-lang="ta">தொலைபேசி</span></h4>
+        <p data-lang="en">[Your Phone Number]<br>Available during darshan hours</p>
+        <p data-lang="ta">[உங்கள் தொலைபேசி எண்]<br>தரிசன நேரங்களில் கிடைக்கும்</p>
       </div>
       <div class="contact-item">
-        <h4>✉️ Email</h4>
-        <p>[your@email.com]<br>We respond within 2 days</p>
+        <h4>✉️ <span data-lang="en">Email</span><span data-lang="ta">மின்னஞ்சல்</span></h4>
+        <p data-lang="en">[your@email.com]<br>We respond within 2 days</p>
+        <p data-lang="ta">[your@email.com]<br>2 நாட்களுக்குள் பதிலளிப்போம்</p>
       </div>
       <div class="contact-item">
-        <h4>🕐 Best Time to Call</h4>
-        <p>Weekdays: 9 AM – 11 AM<br>or Evenings: 5 PM – 7 PM</p>
+        <h4>🕐 <span data-lang="en">Best Time to Call</span><span data-lang="ta">அழைக்க சிறந்த நேரம்</span></h4>
+        <p data-lang="en">Weekdays: 9 AM &ndash; 11 AM<br>or Evenings: 5 PM &ndash; 7 PM</p>
+        <p data-lang="ta">வார நாட்கள்: காலை 9 மணி &ndash; 11 மணி<br>அல்லது மாலை: 5 மணி &ndash; 7 மணி</p>
       </div>
     </div>
-    <div class="contact-tagline">ALL ARE WELCOME · COME AS YOU ARE · THE GURU'S GRACE AWAITS</div>
+    <div class="contact-tagline" data-lang="en">ALL ARE WELCOME · COME AS YOU ARE · THE GURU'S GRACE AWAITS</div>
+    <div class="contact-tagline" data-lang="ta">அனைவரும் வரவேற்கப்படுகிறீர்கள் · இருக்கும் நிலையிலேயே வாருங்கள் · குருவின் அருள் காத்திருக்கிறது</div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-om">ॐ नमो भगवते दत्तात्रेयाय</div>
-  <p>Sri Datta Guru Paduka Peedam &middot; All Rights Reserved</p>
+  <p data-lang="en">Shree Datta Paduga Peedam &middot; All Rights Reserved</p>
+  <p data-lang="ta">ஶ்ரீ தத்த பாதுகா பீடம் &middot; அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை</p>
   <p style="margin-top:4px; font-style:italic; font-size:12px;">Om Namo Bhagavate Dattatreyaya</p>
 </footer>
 
 <script>
+  function setLang(lang) {
+    document.documentElement.setAttribute('lang', lang);
+    const btnTa = document.getElementById('btn-ta');
+    const btnEn = document.getElementById('btn-en');
+    if (lang === 'ta') {
+      btnTa.classList.add('active'); btnTa.setAttribute('aria-pressed', 'true');
+      btnEn.classList.remove('active'); btnEn.setAttribute('aria-pressed', 'false');
+    } else {
+      btnEn.classList.add('active'); btnEn.setAttribute('aria-pressed', 'true');
+      btnTa.classList.remove('active'); btnTa.setAttribute('aria-pressed', 'false');
+    }
+    try { localStorage.setItem('peedam-lang', lang); } catch (e) {}
+  }
+
   function showPage(name, el) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const target = document.getElementById('page-' + name);
@@ -357,6 +598,13 @@
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
   }
+
+  // Restore saved language preference (default Tamil)
+  (function() {
+    let saved = 'ta';
+    try { saved = localStorage.getItem('peedam-lang') || 'ta'; } catch (e) {}
+    setLang(saved);
+  })();
 </script>
 </body>
 </html>
