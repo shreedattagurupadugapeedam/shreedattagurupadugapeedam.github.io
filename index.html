@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Datta Guru Paduka Peedam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C8952A;
+      --gold-light: #E8B84B;
+      --gold-pale: #F7E8C0;
+      --saffron: #D4640A;
+      --cream: #FDF6E3;
+      --deep: #1A0A00;
+      --mid: #3D1F00;
+      --muted: #7A5C3A;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Cormorant Garamond', Georgia, serif; background: var(--cream); color: var(--deep); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--deep);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      border-bottom: 1px solid var(--gold);
+    }
+    .nav-logo { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; letter-spacing: 0.08em; padding: 14px 0; line-height: 1.45; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      color: var(--gold-pale); font-family: 'Cinzel', serif; font-size: 11px;
+      letter-spacing: 0.12em; text-decoration: none; text-transform: uppercase;
+      padding: 20px 0; border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s; cursor: pointer;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--gold); border-radius: 2px; transition: all 0.3s; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; overflow: hidden;
+      min-height: 540px; display: flex; align-items: center; justify-content: center;
+      background: var(--deep); text-align: center; padding: 80px 2rem 64px;
+    }
+    .hero-mandala {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 440px; height: 440px; opacity: 0.07; pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 660px; }
+    .om-symbol { font-size: 52px; color: var(--gold); line-height: 1; margin-bottom: 20px; animation: glow 3s ease-in-out infinite alternate; }
+    @keyframes glow { from { opacity: 0.65; } to { opacity: 1; } }
+    .hero h1 { font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 30px; font-weight: 700; letter-spacing: 0.06em; line-height: 1.35; margin-bottom: 10px; }
+    .hero-sub { font-family: 'Cinzel', serif; color: var(--gold); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 26px; }
+    .hero-verse { color: var(--gold-pale); font-style: italic; font-size: 17px; line-height: 1.8; opacity: 0.88; border-top: 1px solid rgba(200,149,42,0.3); padding-top: 22px; }
+    .hero-cta {
+      display: inline-block; margin-top: 30px;
+      font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--deep); background: var(--gold); border: none; padding: 13px 34px;
+      cursor: pointer; transition: background 0.2s, transform 0.1s;
+    }
+    .hero-cta:hover { background: var(--gold-light); transform: scale(1.02); }
+
+    /* ── DIVIDER ── */
+    .divider { display: flex; align-items: center; gap: 16px; padding: 0 2rem; margin: 52px 0 0; }
+    .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+    .divider-sym { color: var(--gold); font-size: 20px; }
+
+    /* ── SECTIONS ── */
+    .section { padding: 56px 2rem; max-width: 920px; margin: 0 auto; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .section-title { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 600; color: var(--saffron); letter-spacing: 0.08em; text-align: center; margin-bottom: 8px; }
+    .section-under { text-align: center; font-size: 12px; letter-spacing: 0.2em; color: var(--muted); font-family: 'Cinzel', serif; text-transform: uppercase; margin-bottom: 40px; }
+
+    /* ── CARDS ── */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .card {
+      border: 1px solid rgba(200,149,42,0.3); padding: 28px 20px;
+      text-align: center; transition: border-color 0.2s, background 0.2s;
+    }
+    .card:hover { border-color: var(--gold); background: rgba(200,149,42,0.05); }
+    .card-icon { font-size: 28px; margin-bottom: 12px; }
+    .card h4 { font-family: 'Cinzel', serif; font-size: 13px; color: var(--saffron); letter-spacing: 0.06em; margin-bottom: 8px; }
+    .card p { font-size: 15px; color: var(--muted); line-height: 1.65; }
+
+    /* ── ABOUT ── */
+    .about-text { font-size: 17.5px; line-height: 1.85; color: var(--mid); text-align: justify; }
+    .about-text p + p { margin-top: 20px; }
+    .highlight { color: var(--saffron); font-style: italic; }
+    .datta-card { background: var(--deep); border: 1px solid var(--gold); padding: 36px; margin: 40px 0; display: flex; gap: 32px; align-items: flex-start; }
+    .datta-icon { font-size: 52px; flex-shrink: 0; line-height: 1; }
+    .datta-card h3 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 16px; margin-bottom: 12px; }
+    .datta-card p { color: var(--gold-pale); font-size: 15px; line-height: 1.8; opacity: 0.88; }
+
+    /* ── TABS ── */
+    .tabs { display: flex; border-bottom: 1px solid rgba(200,149,42,0.3); margin-bottom: 32px; }
+    .tab-btn { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.1em; background: none; border: none; padding: 12px 20px; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; transition: all 0.2s; margin-bottom: -1px; }
+    .tab-btn.active { color: var(--saffron); border-bottom-color: var(--saffron); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── TIMINGS ── */
+    .timings-wrap { overflow-x: auto; }
+    .timings-table { width: 100%; border-collapse: collapse; min-width: 400px; }
+    .timings-table th { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.12em; color: var(--gold); border-bottom: 1px solid rgba(200,149,42,0.4); padding: 10px 16px; text-align: left; }
+    .timings-table td { padding: 13px 16px; font-size: 15px; color: var(--mid); border-bottom: 1px solid rgba(61,31,0,0.1); }
+    .timings-table tr:last-child td { border-bottom: none; }
+    .tag { display: inline-block; font-size: 11px; font-family: 'Cinzel', serif; letter-spacing: 0.08em; padding: 2px 10px; background: rgba(212,100,10,0.12); color: var(--saffron); }
+    .timings-note { margin-top: 28px; padding: 22px 24px; border: 1px solid rgba(200,149,42,0.25); font-style: italic; color: var(--muted); font-size: 15px; line-height: 1.75; }
+
+    /* ── CONTACT ── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+    .contact-item h4 { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 8px; text-transform: uppercase; }
+    .contact-item p { font-size: 15px; color: var(--mid); line-height: 1.7; }
+    .contact-tagline { text-align: center; font-family: 'Cinzel', serif; font-size: 12px; color: var(--muted); letter-spacing: 0.14em; margin-top: 36px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--deep); border-top: 1px solid var(--gold); padding: 36px 2rem; text-align: center; }
+    .footer-om { font-family: 'Cinzel', serif; color: var(--gold); font-size: 16px; letter-spacing: 0.12em; }
+    footer p { color: var(--gold-pale); font-size: 13px; opacity: 0.6; margin-top: 8px; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 21px; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--deep); padding: 1rem 2rem 1.5rem; gap: 0; border-bottom: 1px solid var(--gold); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; border-bottom: 1px solid rgba(200,149,42,0.1); }
+      .hamburger { display: flex; }
+      .datta-card { flex-direction: column; gap: 16px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+      nav { position: relative; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sri Datta Guru<br>Paduka Peedam</div>
+  <div class="nav-links" id="navLinks">
+    <a class="active" onclick="showPage('home',this)">Home</a>
+    <a onclick="showPage('about',this)">About</a>
+    <a onclick="showPage('seva',this)">Seva</a>
+    <a onclick="showPage('timings',this)">Timings</a>
+    <a onclick="showPage('contact',this)">Contact</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <svg class="hero-mandala" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="200" cy="200" r="190" stroke="white" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="150" stroke="white" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="110" stroke="white" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="70" stroke="white" stroke-width="0.5"/>
+      <g stroke="white" stroke-width="0.5">
+        <line x1="200" y1="10" x2="200" y2="390"/>
+        <line x1="10" y1="200" x2="390" y2="200"/>
+        <line x1="65" y1="65" x2="335" y2="335"/>
+        <line x1="335" y1="65" x2="65" y2="335"/>
+        <line x1="10" y1="130" x2="390" y2="270"/>
+        <line x1="10" y1="270" x2="390" y2="130"/>
+        <line x1="130" y1="10" x2="270" y2="390"/>
+        <line x1="270" y1="10" x2="130" y2="390"/>
+      </g>
+      <polygon points="200,40 240,160 370,160 265,235 300,360 200,280 100,360 135,235 30,160 160,160" stroke="white" stroke-width="0.5" fill="none"/>
+    </svg>
+    <div class="hero-content">
+      <div class="om-symbol">ॐ</div>
+      <h1>Sri Datta Guru Paduka Peedam</h1>
+      <div class="hero-sub">A Sacred Abode of Lord Dattatreya</div>
+      <div class="hero-verse">
+        "Gurur Brahma, Gurur Vishnu, Gurur Devo Maheshvarah<br>
+        Guru Sakshat Param Brahma, Tasmai Sri Gurave Namah"
+      </div>
+      <button class="hero-cta" onclick="showPage('about', document.querySelectorAll('.nav-links a')[1])">Enter the Peedam</button>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-sym">❋</div><div class="divider-line"></div></div>
+
+  <div class="section">
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🪔</div>
+        <h4>Daily Puja</h4>
+        <p>Morning and evening arati performed with devotion every day of the year.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📿</div>
+        <h4>Guru Purnima</h4>
+        <p>Grand celebrations honouring the Datta Guru lineage with special rituals.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌿</div>
+        <h4>Satsang</h4>
+        <p>Weekly spiritual discourses, bhajans, and group meditation open to all.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🙏</div>
+        <h4>Paduka Seva</h4>
+        <p>Revered worship of the sacred Padukas — the divine footprints of the Guru.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+  <div class="section">
+    <div class="section-title">The Peedam</div>
+    <div class="section-under">Our Sacred Heritage</div>
+    <div class="about-text">
+      <p><span class="highlight">Sri Datta Guru Paduka Peedam</span> is a sacred spiritual centre established in the living tradition of Lord Dattatreya — the divine trinity of Brahma, Vishnu, and Shiva united in one form. The Peedam exists as a place where seekers of all paths may draw near to the eternal flame of Guru's grace.</p>
+      <p>The Paduka — the holy sandals of the Guru — are venerated here as the very presence of the living Master. Through the worship of the Padukas, devotees receive divine blessings, protection on their spiritual journey, and the dissolution of obstacles placed by karma.</p>
+      <p>Our centre welcomes all souls regardless of background or tradition. Whether you come for the first time or have walked this path for decades, <span class="highlight">the Guru's grace makes no distinction</span>. The door of the Peedam is always open.</p>
+    </div>
+    <div class="datta-card">
+      <div class="datta-icon">🔱</div>
+      <div>
+        <h3>Lord Dattatreya — The Adi Guru</h3>
+        <p>Dattatreya is revered as the first Guru of all creation — born to sage Atri and Anasuya, embodying the combined essence of the Trimurti. He is depicted with three heads representing Brahma, Vishnu, and Shiva, accompanied by four dogs and a cow, symbolising the four Vedas and the earth. His teaching is the teaching of life itself.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEVA -->
+<div id="page-seva" class="page">
+  <div class="section">
+    <div class="section-title">Seva &amp; Programmes</div>
+    <div class="section-under">Ways to Participate</div>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('rituals',this)">Rituals</button>
+      <button class="tab-btn" onclick="showTab('festivals',this)">Festivals</button>
+      <button class="tab-btn" onclick="showTab('satsang',this)">Satsang</button>
+    </div>
+    <div id="tab-rituals" class="tab-panel active">
+      <div class="card-grid">
+        <div class="card"><div class="card-icon">🌅</div><h4>Prabhata Puja</h4><p>Morning worship at sunrise — awakening the deity with Vedic hymns and offerings.</p></div>
+        <div class="card"><div class="card-icon">🕯️</div><h4>Sayam Arati</h4><p>Evening lamp offering performed at dusk with devotional singing.</p></div>
+        <div class="card"><div class="card-icon">🌸</div><h4>Abhishekam</h4><p>Sacred bathing of the deity with milk, honey, and sacred waters on special occasions.</p></div>
+        <div class="card"><div class="card-icon">📿</div><h4>Sahasranama Archana</h4><p>Chanting of the thousand names of Lord Dattatreya — offered on auspicious days.</p></div>
+      </div>
+    </div>
+    <div id="tab-festivals" class="tab-panel">
+      <div class="card-grid">
+        <div class="card"><div class="card-icon">🌕</div><h4>Guru Purnima</h4><p>The holiest day — a grand celebration of the Guru-disciple bond, with special puja and discourse.</p></div>
+        <div class="card"><div class="card-icon">✨</div><h4>Datta Jayanti</h4><p>The birthday of Lord Dattatreya observed with all-night kirtan and prasad distribution.</p></div>
+        <div class="card"><div class="card-icon">🪔</div><h4>Deepavali</h4><p>Festival of lights celebrated with lamp seva and community gathering.</p></div>
+        <div class="card"><div class="card-icon">🌿</div><h4>Navaratri</h4><p>Nine nights of devotion — special programmes each evening through the festival.</p></div>
+      </div>
+    </div>
+    <div id="tab-satsang" class="tab-panel">
+      <div class="card-grid">
+        <div class="card"><div class="card-icon">🪈</div><h4>Bhajan Satsang</h4><p>Every Sunday evening — devotional singing open to all. No experience necessary.</p></div>
+        <div class="card"><div class="card-icon">📖</div><h4>Discourse</h4><p>Scriptural readings from the Guru Charitra and Avadhuta Gita on the 1st of each month.</p></div>
+        <div class="card"><div class="card-icon">🧘</div><h4>Dhyana Shibir</h4><p>Meditation retreats held quarterly — register at the centre in advance.</p></div>
+        <div class="card"><div class="card-icon">🌱</div><h4>Anna Seva</h4><p>Free meal offered to all visitors every Thursday, the auspicious day of Guru.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMINGS -->
+<div id="page-timings" class="page">
+  <div class="section">
+    <div class="section-title">Darshan Timings</div>
+    <div class="section-under">Temple Hours</div>
+    <div class="timings-wrap">
+      <table class="timings-table">
+        <thead>
+          <tr><th>Session</th><th>Time</th><th>Days</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Morning Darshan</td><td>6:00 AM – 12:00 PM</td><td>Daily</td></tr>
+          <tr><td>Afternoon (Closed)</td><td>12:00 PM – 4:00 PM</td><td>Daily</td></tr>
+          <tr><td>Evening Darshan</td><td>4:00 PM – 8:30 PM</td><td>Daily</td></tr>
+          <tr><td>Prabhata Puja</td><td>6:30 AM</td><td>Daily</td></tr>
+          <tr><td>Sayam Arati</td><td>7:30 PM</td><td>Daily</td></tr>
+          <tr><td>Bhajan Satsang</td><td>6:00 PM – 7:30 PM</td><td><span class="tag">Sunday</span></td></tr>
+          <tr><td>Anna Seva (Free Lunch)</td><td>12:00 PM (before closing)</td><td><span class="tag">Thursday</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="timings-note">
+      Special timings apply on festival days and Ekadashi. Please contact the centre or follow our notice board for updates during major celebrations such as Guru Purnima and Datta Jayanti.
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" class="page">
+  <div class="section">
+    <div class="section-title">Visit &amp; Connect</div>
+    <div class="section-under">We Welcome You</div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <h4>📍 Location</h4>
+        <p>Sri Datta Guru Paduka Peedam<br>[Your Address Line 1]<br>[City, State, PIN]</p>
+      </div>
+      <div class="contact-item">
+        <h4>📞 Phone</h4>
+        <p>[Your Phone Number]<br>Available during darshan hours</p>
+      </div>
+      <div class="contact-item">
+        <h4>✉️ Email</h4>
+        <p>[your@email.com]<br>We respond within 2 days</p>
+      </div>
+      <div class="contact-item">
+        <h4>🕐 Best Time to Call</h4>
+        <p>Weekdays: 9 AM – 11 AM<br>or Evenings: 5 PM – 7 PM</p>
+      </div>
+    </div>
+    <div class="contact-tagline">ALL ARE WELCOME · COME AS YOU ARE · THE GURU'S GRACE AWAITS</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-om">ॐ नमो भगवते दत्तात्रेयाय</div>
+  <p>Sri Datta Guru Paduka Peedam &middot; All Rights Reserved</p>
+  <p style="margin-top:4px; font-style:italic; font-size:12px;">Om Namo Bhagavate Dattatreyaya</p>
+</footer>
+
+<script>
+  function showPage(name, el) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + name);
+    if (target) target.classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    if (el) el.classList.add('active');
+    document.getElementById('navLinks').classList.remove('open');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showTab(name, el) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    const t = document.getElementById('tab-' + name);
+    if (t) t.classList.add('active');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+</script>
+</body>
+</html>
