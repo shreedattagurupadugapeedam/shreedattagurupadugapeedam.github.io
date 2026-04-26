@@ -3,449 +3,222 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shree Datta Guru Paduga Peedam | ஸ்ரீ தத்த குரு பாதுகா பீடம்</title>
+  <title>Shree Datta Guru Paduga Peedam · ஶ்ரீ தத்த குரு பாதுகா பீடம்</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Noto+Serif+Tamil:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--gold:#C8952A;--gold-light:#E8B84B;--gold-pale:#F7E8C0;--saffron:#D4640A;--cream:#FDF6E3;--deep:#1A0A00;--mid:#3D1F00;--muted:#7A5C3A}
-    html{scroll-behavior:smooth}
-    body{font-family:'Cormorant Garamond','Noto Serif Tamil',Georgia,serif;background:var(--cream);color:var(--deep)}
-    .ta{font-family:'Noto Serif Tamil',serif}
-
-    /* LANG BAR */
-    .lang-bar{background:var(--mid);display:flex;justify-content:flex-end;padding:6px 1.5rem;gap:8px}
-    .lang-btn{font-family:'Noto Serif Tamil',serif;font-size:12px;padding:4px 14px;border:1px solid var(--gold);background:transparent;color:var(--gold-pale);cursor:pointer;border-radius:2px;transition:all .2s}
-    .lang-btn.active{background:var(--gold);color:var(--deep)}
-
-    /* NAV */
-    nav{position:sticky;top:0;z-index:100;background:var(--deep);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;border-bottom:1px solid var(--gold)}
-    .nav-logo{font-family:'Cinzel',serif;color:var(--gold);font-size:12px;letter-spacing:.05em;padding:10px 0;line-height:1.5}
-    .nav-logo .ta{font-family:'Noto Serif Tamil',serif;font-size:11px;color:var(--gold-pale);opacity:.8;display:block}
-    .nav-links{display:flex;gap:16px}
-    .nav-links a{color:var(--gold-pale);font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;text-decoration:none;text-transform:uppercase;padding:18px 0;border-bottom:2px solid transparent;transition:all .2s;cursor:pointer;text-align:center}
-    .nav-links a .ta{font-family:'Noto Serif Tamil',serif;font-size:9px;display:block;opacity:.7;text-transform:none;letter-spacing:0}
-    .nav-links a:hover,.nav-links a.active{color:var(--gold-light);border-bottom-color:var(--gold)}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
-    .hamburger span{width:22px;height:2px;background:var(--gold);border-radius:2px}
-
-    /* HERO */
-    .hero{position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center;justify-content:center;background:var(--deep);text-align:center;padding:60px 2rem 50px}
-    .hero-mandala{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:420px;height:420px;opacity:.07;pointer-events:none}
-    .hero-content{position:relative;z-index:2;max-width:680px}
-    .om-symbol{font-size:50px;color:var(--gold);line-height:1;margin-bottom:14px;animation:glow 3s ease-in-out infinite alternate}
-    @keyframes glow{from{opacity:.65}to{opacity:1}}
-    .hero h1{font-family:'Cinzel',serif;color:var(--gold-light);font-size:24px;font-weight:700;letter-spacing:.04em;line-height:1.35;margin-bottom:6px}
-    .hero h1 .ta{font-family:'Noto Serif Tamil',serif;font-size:20px;display:block;color:var(--gold-pale);font-weight:600;margin-top:4px}
-    .hero-sub{font-family:'Cinzel',serif;color:var(--gold);font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px}
-    .hero-sub .ta{font-family:'Noto Serif Tamil',serif;font-size:13px;letter-spacing:.02em;text-transform:none;display:block;color:var(--gold-pale);opacity:.85;margin-top:2px}
-    .hero-verse{color:var(--gold-pale);font-style:italic;font-size:15px;line-height:1.85;opacity:.88;border-top:1px solid rgba(200,149,42,.3);padding-top:18px;margin-top:18px}
-    .hero-verse .ta{font-family:'Noto Serif Tamil',serif;font-style:normal;font-size:14px;display:block;margin-top:8px;border-top:1px solid rgba(200,149,42,.15);padding-top:8px}
-    .hero-cta{display:inline-flex;flex-direction:column;align-items:center;margin-top:24px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);background:var(--gold);border:none;padding:12px 30px;cursor:pointer;transition:background .2s,transform .1s;gap:2px}
-    .hero-cta .ta{font-family:'Noto Serif Tamil',serif;font-size:12px;letter-spacing:.02em;text-transform:none}
-    .hero-cta:hover{background:var(--gold-light);transform:scale(1.02)}
-
-    /* DEITY SECTION */
-    .deity-section{background:var(--deep);padding:40px 2rem;text-align:center;border-top:1px solid rgba(200,149,42,.3);border-bottom:1px solid rgba(200,149,42,.3)}
-    .deity-img-wrap{position:relative;display:inline-block;margin-bottom:16px}
-    .deity-img-wrap::before{content:'';position:absolute;inset:-8px;border:1px solid var(--gold);pointer-events:none;z-index:1}
-    .deity-img-wrap::after{content:'';position:absolute;inset:-16px;border:1px solid rgba(200,149,42,.3);pointer-events:none}
-    .deity-img{width:240px;max-width:90vw;display:block;filter:sepia(20%) saturate(90%) contrast(1.05)}
-    .deity-caption{color:var(--gold-pale);font-style:italic;font-size:15px;opacity:.8}
-    .deity-caption .ta{font-family:'Noto Serif Tamil',serif;font-style:normal;font-size:14px;display:block;margin-top:4px;opacity:.75}
-
-    /* DIVIDER */
-    .divider{display:flex;align-items:center;gap:16px;padding:0 2rem;margin:48px 0 0}
-    .divider-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
-    .divider-sym{color:var(--gold);font-size:20px}
-
-    /* SECTIONS */
-    .section{padding:50px 2rem;max-width:920px;margin:0 auto}
-    .page{display:none}
-    .page.active{display:block}
-    .section-title{font-family:'Cinzel',serif;font-size:21px;font-weight:600;color:var(--saffron);letter-spacing:.07em;text-align:center;margin-bottom:4px}
-    .section-title .ta{font-family:'Noto Serif Tamil',serif;font-size:17px;display:block;margin-top:4px;color:var(--muted);font-weight:600}
-    .section-under{text-align:center;font-size:11px;letter-spacing:.18em;color:var(--muted);font-family:'Cinzel',serif;text-transform:uppercase;margin-bottom:34px;margin-top:6px}
-    .section-under .ta{font-family:'Noto Serif Tamil',serif;font-size:13px;display:block;letter-spacing:.02em;text-transform:none;margin-top:2px}
-
-    /* CARDS */
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
-    .card{border:1px solid rgba(200,149,42,.3);padding:24px 16px;text-align:center;transition:border-color .2s,background .2s}
-    .card:hover{border-color:var(--gold);background:rgba(200,149,42,.05)}
-    .card-icon{font-size:26px;margin-bottom:10px}
-    .card h4{font-family:'Cinzel',serif;font-size:12px;color:var(--saffron);letter-spacing:.05em;margin-bottom:4px}
-    .card h4 .ta{font-family:'Noto Serif Tamil',serif;font-size:13px;display:block;margin-top:2px;color:var(--muted)}
-    .card p{font-size:14px;color:var(--muted);line-height:1.65}
-    .card p .ta{font-family:'Noto Serif Tamil',serif;font-size:13px;display:block;margin-top:6px;border-top:1px solid rgba(200,149,42,.15);padding-top:6px;line-height:1.7}
-
-    /* ABOUT */
-    .about-text{font-size:17px;line-height:1.85;color:var(--mid)}
-    .about-text p+p{margin-top:16px}
-    .ta-block{font-family:'Noto Serif Tamil',serif;font-size:15px;line-height:1.9;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px solid rgba(200,149,42,.15);display:block}
-    .highlight{color:var(--saffron);font-style:italic}
-    .datta-card{background:var(--deep);border:1px solid var(--gold);padding:30px;margin:32px 0;display:flex;gap:24px;align-items:flex-start}
-    .datta-icon{font-size:44px;flex-shrink:0;line-height:1}
-    .datta-card h3{font-family:'Cinzel',serif;color:var(--gold);font-size:15px;margin-bottom:4px}
-    .datta-card h3 .ta{font-family:'Noto Serif Tamil',serif;font-size:14px;display:block;color:var(--gold-pale);opacity:.8;margin-top:3px}
-    .datta-card p{color:var(--gold-pale);font-size:14px;line-height:1.8;opacity:.88}
-    .datta-card p .ta{font-family:'Noto Serif Tamil',serif;font-size:13px;display:block;margin-top:8px;border-top:1px solid rgba(200,149,42,.2);padding-top:8px;line-height:1.85}
-
-    /* GURU SECTION */
-    .guru-section{background:linear-gradient(135deg,rgba(26,10,0,.04) 0%,rgba(200,149,42,.08) 100%);border:1px solid rgba(200,149,42,.25);padding:32px;margin:32px 0;text-align:center}
-    .guru-name{font-family:'Cinzel',serif;font-size:20px;color:var(--saffron);letter-spacing:.06em;margin-bottom:4px}
-    .guru-name .ta{font-family:'Noto Serif Tamil',serif;font-size:18px;display:block;color:var(--muted);margin-top:4px}
-    .guru-title{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.12em;color:var(--gold);margin-bottom:20px;text-transform:uppercase}
-    .guru-title .ta{font-family:'Noto Serif Tamil',serif;font-size:12px;display:block;text-transform:none;letter-spacing:.02em;margin-top:2px;color:var(--muted)}
-    .guru-story{font-size:16px;line-height:1.9;color:var(--mid);text-align:justify}
-    .guru-story .ta{font-family:'Noto Serif Tamil',serif;font-size:14px;line-height:1.9;color:var(--muted);display:block;margin-top:12px;border-top:1px solid rgba(200,149,42,.2);padding-top:12px;text-align:justify}
-
-    /* TABS */
-    .tabs{display:flex;border-bottom:1px solid rgba(200,149,42,.3);margin-bottom:26px;flex-wrap:wrap}
-    .tab-btn{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.07em;background:none;border:none;padding:10px 14px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;transition:all .2s;margin-bottom:-1px}
-    .tab-btn .ta{font-family:'Noto Serif Tamil',serif;font-size:11px;display:block;margin-top:1px}
-    .tab-btn.active{color:var(--saffron);border-bottom-color:var(--saffron)}
-    .tab-panel{display:none}
-    .tab-panel.active{display:block}
-
-    /* TIMINGS */
-    .timings-wrap{overflow-x:auto}
-    .timings-table{width:100%;border-collapse:collapse;min-width:380px}
-    .timings-table th{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.1em;color:var(--gold);border-bottom:1px solid rgba(200,149,42,.4);padding:10px 14px;text-align:left}
-    .timings-table th .ta{font-family:'Noto Serif Tamil',serif;font-size:12px;display:block;letter-spacing:.01em;margin-top:2px}
-    .timings-table td{padding:12px 14px;font-size:14px;color:var(--mid);border-bottom:1px solid rgba(61,31,0,.1)}
-    .timings-table td .ta{font-family:'Noto Serif Tamil',serif;font-size:13px;display:block;color:var(--muted);margin-top:2px}
-    .timings-table tr:last-child td{border-bottom:none}
-    .tag{display:inline-block;font-size:10px;font-family:'Cinzel',serif;letter-spacing:.06em;padding:2px 8px;background:rgba(212,100,10,.12);color:var(--saffron)}
-    .timings-note{margin-top:22px;padding:18px 20px;border:1px solid rgba(200,149,42,.25);font-style:italic;color:var(--muted);font-size:14px;line-height:1.8}
-    .timings-note .ta{font-family:'Noto Serif Tamil',serif;font-style:normal;font-size:13px;display:block;margin-top:8px;border-top:1px solid rgba(200,149,42,.15);padding-top:8px}
-
-    /* CONTACT */
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
-    .contact-item{padding:20px;border:1px solid rgba(200,149,42,.2)}
-    .contact-item h4{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.12em;color:var(--gold);margin-bottom:8px;text-transform:uppercase}
-    .contact-item h4 .ta{font-family:'Noto Serif Tamil',serif;font-size:12px;display:block;text-transform:none;margin-top:2px;color:var(--gold-pale);opacity:.7}
-    .contact-item p{font-size:14px;color:var(--mid);line-height:1.8}
-    .contact-item p .ta{font-family:'Noto Serif Tamil',serif;font-size:13px;display:block;color:var(--muted);margin-top:4px}
-    .contact-tagline{text-align:center;font-family:'Cinzel',serif;font-size:11px;color:var(--muted);letter-spacing:.12em;margin-top:28px}
-    .contact-tagline .ta{font-family:'Noto Serif Tamil',serif;font-size:13px;display:block;letter-spacing:.02em;margin-top:4px}
-
-    /* MAP LINK */
-    .map-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.1em;color:var(--deep);background:var(--gold);border:none;padding:10px 22px;cursor:pointer;text-decoration:none;transition:background .2s}
-    .map-btn:hover{background:var(--gold-light)}
-
-    /* FOOTER */
-    footer{background:var(--deep);border-top:1px solid var(--gold);padding:30px 2rem;text-align:center}
-    .footer-om{font-family:'Cinzel',serif;color:var(--gold);font-size:15px;letter-spacing:.1em}
-    .footer-om .ta{font-family:'Noto Serif Tamil',serif;font-size:14px;display:block;color:var(--gold-pale);margin-top:6px;opacity:.8}
-    footer p{color:var(--gold-pale);font-size:12px;opacity:.55;margin-top:8px}
-
-    /* MOBILE */
-    @media(max-width:640px){
-      .hero h1{font-size:18px}
-      .hero h1 .ta{font-size:16px}
-      .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--deep);padding:1rem 1.5rem 1.5rem;border-bottom:1px solid var(--gold)}
-      .nav-links.open{display:flex}
-      .nav-links a{padding:10px 0;border-bottom:1px solid rgba(200,149,42,.1)}
-      .hamburger{display:flex}
-      nav{position:relative}
-      .datta-card{flex-direction:column;gap:14px}
-      .contact-grid{grid-template-columns:1fr}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #C8952A; --gold-light: #E8B84B; --gold-pale: #F7E8C0;
+      --saffron: #D4640A; --cream: #FDF6E3; --deep: #1A0A00;
+      --mid: #3D1F00; --muted: #7A5C3A;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Cormorant Garamond', Georgia, serif; background: var(--cream); color: var(--deep); }
+    html[lang="ta"] body, html[lang="ta"] .about-text, html[lang="ta"] .card p,
+    html[lang="ta"] .timings-table td, html[lang="ta"] .contact-item p,
+    html[lang="ta"] .datta-card p, html[lang="ta"] .timings-note {
+      font-family: 'Noto Serif Tamil', 'Cormorant Garamond', Georgia, serif;
+    }
+    html[lang="ta"] .nav-logo, html[lang="ta"] .nav-links a, html[lang="ta"] .hero h1,
+    html[lang="ta"] .hero-sub, html[lang="ta"] .section-title, html[lang="ta"] .section-under,
+    html[lang="ta"] .card h4, html[lang="ta"] .datta-card h3, html[lang="ta"] .tab-btn,
+    html[lang="ta"] .timings-table th, html[lang="ta"] .contact-item h4,
+    html[lang="ta"] .contact-tagline, html[lang="ta"] .footer-om, html[lang="ta"] .hero-cta {
+      font-family: 'Noto Sans Tamil', 'Cinzel', serif; letter-spacing: 0.04em;
+    }
+    [data-lang] { display: none; }
+    html[lang="en"] [data-lang="en"] { display: inherit; }
+    html[lang="ta"] [data-lang="ta"] { display: inherit; }
+    span[data-lang], a[data-lang] { display: none; }
+    html[lang="en"] span[data-lang="en"], html[lang="en"] a[data-lang="en"] { display: inline; }
+    html[lang="ta"] span[data-lang="ta"], html[lang="ta"] a[data-lang="ta"] { display: inline; }
+    nav {
+      position: sticky; top: 0; z-index: 100; background: var(--deep);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; border-bottom: 1px solid var(--gold);
+    }
+    .nav-logo { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; letter-spacing: 0.08em; padding: 14px 0; line-height: 1.45; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      color: var(--gold-pale); font-family: 'Cinzel', serif; font-size: 11px;
+      letter-spacing: 0.12em; text-decoration: none; text-transform: uppercase;
+      padding: 20px 0; border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s; cursor: pointer;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 4px; background: transparent;
+      border: 1px solid var(--gold); border-radius: 999px; overflow: hidden; font-family: 'Cinzel', serif;
+    }
+    .lang-toggle button {
+      background: transparent; color: var(--gold-pale); border: none; padding: 6px 14px;
+      font-size: 11px; letter-spacing: 0.1em; cursor: pointer; font-family: inherit;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-toggle button.tamil-btn { font-family: 'Noto Sans Tamil', serif; font-size: 13px; }
+    .lang-toggle button.active { background: var(--gold); color: var(--deep); font-weight: 600; }
+    .lang-toggle button:hover:not(.active) { color: var(--gold-light); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--gold); border-radius: 2px; transition: all 0.3s; }
+    .hero {
+      position: relative; overflow: hidden; min-height: 540px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--deep); text-align: center; padding: 80px 2rem 64px;
+    }
+    .hero-mandala {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 440px; height: 440px; opacity: 0.07; pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 720px; }
+    .om-symbol { font-size: 52px; color: var(--gold); line-height: 1; margin-bottom: 20px; animation: glow 3s ease-in-out infinite alternate; }
+    @keyframes glow { from { opacity: 0.65; } to { opacity: 1; } }
+    .hero h1 { font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 30px; font-weight: 700; letter-spacing: 0.06em; line-height: 1.35; margin-bottom: 10px; }
+    .hero-sub { font-family: 'Cinzel', serif; color: var(--gold); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 26px; }
+    .hero-verse { color: var(--gold-pale); font-style: italic; font-size: 17px; line-height: 1.8; opacity: 0.88; border-top: 1px solid rgba(200,149,42,0.3); padding-top: 22px; }
+    .hero-cta {
+      display: inline-block; margin-top: 30px; font-family: 'Cinzel', serif; font-size: 11px;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--deep); background: var(--gold);
+      border: none; padding: 13px 34px; cursor: pointer; transition: background 0.2s, transform 0.1s;
+    }
+    .hero-cta:hover { background: var(--gold-light); transform: scale(1.02); }
+    .divider { display: flex; align-items: center; gap: 16px; padding: 0 2rem; margin: 52px 0 0; }
+    .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+    .divider-sym { color: var(--gold); font-size: 20px; }
+    .section { padding: 56px 2rem; max-width: 920px; margin: 0 auto; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .section-title { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 600; color: var(--saffron); letter-spacing: 0.08em; text-align: center; margin-bottom: 8px; }
+    .section-under { text-align: center; font-size: 12px; letter-spacing: 0.2em; color: var(--muted); font-family: 'Cinzel', serif; text-transform: uppercase; margin-bottom: 40px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .card { border: 1px solid rgba(200,149,42,0.3); padding: 28px 20px; text-align: center; transition: border-color 0.2s, background 0.2s; }
+    .card:hover { border-color: var(--gold); background: rgba(200,149,42,0.05); }
+    .card-icon { font-size: 28px; margin-bottom: 12px; }
+    .card h4 { font-family: 'Cinzel', serif; font-size: 13px; color: var(--saffron); letter-spacing: 0.06em; margin-bottom: 8px; }
+    .card p { font-size: 15px; color: var(--muted); line-height: 1.65; }
+    .about-text { font-size: 17.5px; line-height: 1.85; color: var(--mid); text-align: justify; }
+    .about-text p + p { margin-top: 20px; }
+    .highlight { color: var(--saffron); font-style: italic; }
+    .datta-card { background: var(--deep); border: 1px solid var(--gold); padding: 36px; margin: 40px 0; display: flex; gap: 32px; align-items: flex-start; }
+    .datta-icon { font-size: 52px; flex-shrink: 0; line-height: 1; }
+    .datta-card h3 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 16px; margin-bottom: 12px; }
+    .datta-card p { color: var(--gold-pale); font-size: 15px; line-height: 1.8; opacity: 0.88; }
+    .datta-img-wrap { margin: 44px 0 40px; text-align: center; border: 1px solid rgba(200,149,42,0.35); padding: 24px 20px 18px; background: rgba(200,149,42,0.04); }
+    .datta-img { max-width: 380px; width: 100%; display: block; margin: 0 auto; border: 1px solid rgba(200,149,42,0.2); }
+    .datta-img-caption { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.22em; color: var(--muted); margin-top: 14px; text-transform: uppercase; }
+    .tabs { display: flex; border-bottom: 1px solid rgba(200,149,42,0.3); margin-bottom: 32px; }
+    .tab-btn { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.1em; background: none; border: none; padding: 12px 20px; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; transition: all 0.2s; margin-bottom: -1px; }
+    .tab-btn.active { color: var(--saffron); border-bottom-color: var(--saffron); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .timings-wrap { overflow-x: auto; }
+    .timings-table { width: 100%; border-collapse: collapse; min-width: 400px; }
+    .timings-table th { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.12em; color: var(--gold); border-bottom: 1px solid rgba(200,149,42,0.4); padding: 10px 16px; text-align: left; }
+    .timings-table td { padding: 13px 16px; font-size: 15px; color: var(--mid); border-bottom: 1px solid rgba(61,31,0,0.1); }
+    .timings-table tr:last-child td { border-bottom: none; }
+    .tag { display: inline-block; font-size: 11px; font-family: 'Cinzel', serif; letter-spacing: 0.08em; padding: 2px 10px; background: rgba(212,100,10,0.12); color: var(--saffron); }
+    html[lang="ta"] .tag { font-family: 'Noto Sans Tamil', serif; }
+    .timings-note { margin-top: 28px; padding: 22px 24px; border: 1px solid rgba(200,149,42,0.25); font-style: italic; color: var(--muted); font-size: 15px; line-height: 1.75; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+    .contact-item h4 { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 8px; text-transform: uppercase; }
+    .contact-item p { font-size: 15px; color: var(--mid); line-height: 1.7; }
+    .contact-tagline { text-align: center; font-family: 'Cinzel', serif; font-size: 12px; color: var(--muted); letter-spacing: 0.14em; margin-top: 36px; }
+    footer { background: var(--deep); border-top: 1px solid var(--gold); padding: 36px 2rem; text-align: center; }
+    .footer-om { font-family: 'Cinzel', serif; color: var(--gold); font-size: 16px; letter-spacing: 0.12em; }
+    footer p { color: var(--gold-pale); font-size: 13px; opacity: 0.6; margin-top: 8px; }
+    @media (max-width: 760px) {
+      nav { padding: 0 1.25rem; }
+      .hero h1 { font-size: 21px; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--deep); padding: 1rem 2rem 1.5rem; gap: 0; border-bottom: 1px solid var(--gold); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; border-bottom: 1px solid rgba(200,149,42,0.1); }
+      .hamburger { display: flex; }
+      .datta-card { flex-direction: column; gap: 16px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+      nav { position: relative; }
+      .nav-right { gap: 12px; }
+      .lang-toggle button { padding: 5px 10px; font-size: 10px; }
     }
   </style>
 </head>
 <body>
-
-<div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('both',this)">EN + தமிழ்</button>
-  <button class="lang-btn" onclick="setLang('en',this)">English</button>
-  <button class="lang-btn" onclick="setLang('ta',this)">தமிழ்</button>
-</div>
-
 <nav>
-  <div class="nav-logo">Shree Datta Guru Paduga Peedam<span class="ta">ஸ்ரீ தத்த குரு பாதுகா பீடம்</span></div>
-  <div class="nav-links" id="navLinks">
-    <a class="active" onclick="showPage('home',this)">Home<span class="ta">முகப்பு</span></a>
-    <a onclick="showPage('about',this)">About<span class="ta">பற்றி</span></a>
-    <a onclick="showPage('guru',this)">Guru<span class="ta">குரு</span></a>
-    <a onclick="showPage('seva',this)">Seva<span class="ta">சேவை</span></a>
-    <a onclick="showPage('timings',this)">Timings<span class="ta">நேரம்</span></a>
-    <a onclick="showPage('contact',this)">Contact<span class="ta">தொடர்பு</span></a>
+  <div class="nav-logo">
+    <span data-lang="en">Shree Datta Guru<br>Paduga Peedam</span>
+    <span data-lang="ta">ஶ்ரீ தத்த குரு<br>பாதுகா பீடம்</span>
   </div>
-  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  <div class="nav-right">
+    <div class="nav-links" id="navLinks">
+      <a class="active" onclick="showPage('home',this)"><span data-lang="en">Home</span><span data-lang="ta">முகப்பு</span></a>
+      <a onclick="showPage('about',this)"><span data-lang="en">About</span><span data-lang="ta">பற்றி</span></a>
+      <a onclick="showPage('seva',this)"><span data-lang="en">Seva</span><span data-lang="ta">சேவை</span></a>
+      <a onclick="showPage('timings',this)"><span data-lang="en">Timings</span><span data-lang="ta">நேரங்கள்</span></a>
+      <a onclick="showPage('contact',this)"><span data-lang="en">Contact</span><span data-lang="ta">தொடர்பு</span></a>
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language toggle">
+      <button id="btn-ta" class="tamil-btn active" onclick="setLang('ta')" aria-pressed="true">தமிழ்</button>
+      <button id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></div>
+  </div>
 </nav>
 
-<!-- HOME -->
 <div id="page-home" class="page active">
   <div class="hero">
-    <svg class="hero-mandala" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+    <svg class="hero-mandala" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="200" cy="200" r="190" stroke="white" stroke-width="0.5"/>
       <circle cx="200" cy="200" r="150" stroke="white" stroke-width="0.5"/>
       <circle cx="200" cy="200" r="110" stroke="white" stroke-width="0.5"/>
       <circle cx="200" cy="200" r="70" stroke="white" stroke-width="0.5"/>
       <g stroke="white" stroke-width="0.5">
-        <line x1="200" y1="10" x2="200" y2="390"/>
-        <line x1="10" y1="200" x2="390" y2="200"/>
-        <line x1="65" y1="65" x2="335" y2="335"/>
-        <line x1="335" y1="65" x2="65" y2="335"/>
-        <line x1="10" y1="130" x2="390" y2="270"/>
-        <line x1="10" y1="270" x2="390" y2="130"/>
-        <line x1="130" y1="10" x2="270" y2="390"/>
-        <line x1="270" y1="10" x2="130" y2="390"/>
+        <line x1="200" y1="10" x2="200" y2="390"/><line x1="10" y1="200" x2="390" y2="200"/>
+        <line x1="65" y1="65" x2="335" y2="335"/><line x1="335" y1="65" x2="65" y2="335"/>
+        <line x1="10" y1="130" x2="390" y2="270"/><line x1="10" y1="270" x2="390" y2="130"/>
+        <line x1="130" y1="10" x2="270" y2="390"/><line x1="270" y1="10" x2="130" y2="390"/>
       </g>
       <polygon points="200,40 240,160 370,160 265,235 300,360 200,280 100,360 135,235 30,160 160,160" stroke="white" stroke-width="0.5" fill="none"/>
     </svg>
     <div class="hero-content">
       <div class="om-symbol">ॐ</div>
-      <h1>Shree Datta Guru Paduga Peedam<span class="ta">ஸ்ரீ தத்த குரு பாதுகா பீடம்</span></h1>
-      <div class="hero-sub">A Sacred Abode of Lord Dattatreya<span class="ta">இறைவன் தத்தாத்ரேயரின் புனித தலம்</span></div>
-      <div class="hero-verse">
-        "Gurur Brahma, Gurur Vishnu, Gurur Devo Maheshvarah<br>Guru Sakshat Param Brahma, Tasmai Sri Gurave Namah"
-        <span class="ta">"குரு பிரம்மா, குரு விஷ்ணு, குரு தேவோ மகேஸ்வரஹ<br>குரு சாக்ஷாத் பரம் பிரம்மா, தஸ்மை ஸ்ரீ குரவே நமஹ"</span>
-      </div>
-      <button class="hero-cta" onclick="showPage('about',document.querySelectorAll('.nav-links a')[1])">
-        Enter the Peedam<span class="ta">பீடத்தினுள் நுழைக</span>
+      <h1 data-lang="en">Shree Datta Guru Paduga Peedam</h1>
+      <h1 data-lang="ta">ஶ்ரீ தத்த குரு பாதுகா பீடம்</h1>
+      <div class="hero-sub" data-lang="en">A Sacred Abode of Lord Dattatreya</div>
+      <div class="hero-sub" data-lang="ta">பகவான் தத்தாத்ரேயரின் புனித இருப்பிடம்</div>
+      <div class="hero-verse" data-lang="en">"Gurur Brahma, Gurur Vishnu, Gurur Devo Maheshvarah<br>Guru Sakshat Param Brahma, Tasmai Sri Gurave Namah"</div>
+      <div class="hero-verse" data-lang="ta">"குருர் ப்ரஹ்மா, குருர் விஷ்ணு, குரு தேவோ மஹேஸ்வரஃ<br>குரு சாக்ஷாத் பரம் ப்ரஹ்மா, தஸ்மை ஶ்ரீ குரவே நமஃ"</div>
+      <button class="hero-cta" onclick="showPage('about', document.querySelectorAll('.nav-links a')[1])">
+        <span data-lang="en">Enter the Peedam</span><span data-lang="ta">பீடத்திற்குள் நுழையுங்கள்</span>
       </button>
     </div>
   </div>
-
-  <div class="deity-section">
-    <div class="deity-img-wrap">
-      <img class="deity-img" src="lord-dattatreya.webp" alt="Lord Dattatreya" onerror="this.style.display='none';document.getElementById('deity-fallback').style.display='flex'"/>
-      <div id="deity-fallback" style="display:none;width:240px;height:300px;align-items:center;justify-content:center;flex-direction:column;background:rgba(200,149,42,.05);border:1px solid var(--gold)">
-        <div style="font-size:60px">🔱</div>
-        <div style="font-family:'Cinzel',serif;color:var(--gold);font-size:12px;margin-top:8px">Lord Dattatreya</div>
-      </div>
-    </div>
-    <div class="deity-caption">
-      Sri Dattatreya — The Adi Guru, embodiment of the Holy Trinity
-      <span class="ta">ஸ்ரீ தத்தாத்ரேயர் — ஆதி குரு, திருமூர்த்தியின் அவதாரம்</span>
-    </div>
-  </div>
-
   <div class="divider"><div class="divider-line"></div><div class="divider-sym">❋</div><div class="divider-line"></div></div>
-
   <div class="section">
     <div class="card-grid">
-      <div class="card"><div class="card-icon">🪔</div><h4>Daily Puja<span class="ta">தினசரி பூஜை</span></h4><p>Morning and evening arati performed with devotion every day.<span class="ta">தினமும் காலை மாலை ஆரத்தி பக்தியுடன் நடைபெறுகிறது.</span></p></div>
-      <div class="card"><div class="card-icon">📿</div><h4>Guru Purnima<span class="ta">குரு பூர்ணிமா</span></h4><p>Grand celebrations honouring the Datta Guru lineage.<span class="ta">தத்த குரு வம்சாவழியை கொண்டாடும் மகா உத்சவம்.</span></p></div>
-      <div class="card"><div class="card-icon">🌿</div><h4>Satsang<span class="ta">சத்சங்கம்</span></h4><p>Weekly discourses, bhajans and group meditation open to all.<span class="ta">வாராந்திர சொற்பொழிவு, பஜனை மற்றும் தியானம்.</span></p></div>
-      <div class="card"><div class="card-icon">🙏</div><h4>Paduga Seva<span class="ta">பாதுகா சேவை</span></h4><p>Worship of the sacred Padugas — the divine footprints of the Guru.<span class="ta">குரு பாதுகைகளின் புனித வழிபாடு.</span></p></div>
+      <div class="card"><div class="card-icon">🪔</div><h4 data-lang="en">Daily Puja</h4><h4 data-lang="ta">தினசரி பூஜை</h4><p data-lang="en">Morning and evening arati performed with devotion every day of the year.</p><p data-lang="ta">ஆண்டின் ஒவ்வொரு நாளும் காலை மற்றும் மாலை ஆரத்தி பக்தியுடன் செய்யப்படுகிறது.</p></div>
+      <div class="card"><div class="card-icon">📿</div><h4 data-lang="en">Guru Purnima</h4><h4 data-lang="ta">குரு பூர்ணிமா</h4><p data-lang="en">Grand celebrations honouring the Datta Guru lineage with special rituals.</p><p data-lang="ta">தத்த குரு பரம்பரையை சிறப்பு சடங்குகளுடன் கௌரவிக்கும் பெருங்கொண்டாட்டம்.</p></div>
+      <div class="card"><div class="card-icon">🌿</div><h4 data-lang="en">Satsang</h4><h4 data-lang="ta">சத்சங்கம்</h4><p data-lang="en">Weekly spiritual discourses, bhajans, and group meditation open to all.</p><p data-lang="ta">அனைவருக்கும் திறந்த வாரந்தோறும் ஆன்மீக சொற்பொழிவுகள், பஜனைகள் மற்றும் குழு தியானம்.</p></div>
+      <div class="card"><div class="card-icon">🙏</div><h4 data-lang="en">Paduga Seva</h4><h4 data-lang="ta">பாதுகா சேவை</h4><p data-lang="en">Revered worship of the sacred Padugas — the divine footprints of the Guru.</p><p data-lang="ta">புனித பாதுகைகளின் வழிபாடு — குருவின் தெய்வீக பாதச்சுவடுகள்.</p></div>
     </div>
   </div>
 </div>
 
-<!-- ABOUT -->
 <div id="page-about" class="page">
   <div class="section">
-    <div class="section-title">The Peedam<span class="ta">பீடம் பற்றி</span></div>
-    <div class="section-under">Our Sacred Heritage<span class="ta">நமது புனித மரபு</span></div>
-    <div class="about-text">
-      <p><span class="highlight">Shree Datta Guru Paduga Peedam</span> is a sacred spiritual centre established in the living tradition of Lord Dattatreya — the divine trinity of Brahma, Vishnu, and Shiva united in one transcendent form. The Peedam stands as a sanctuary where seekers of all paths may draw near to the eternal flame of the Guru's grace.
-        <span class="ta-block">ஸ்ரீ தத்த குரு பாதுகா பீடம் என்பது பிரம்மா, விஷ்ணு மற்றும் சிவன் ஆகிய மூவரும் ஒரே வடிவில் இணைந்த தத்தாத்ரேயரின் வாழும் மரபில் நிறுவப்பட்ட புனித ஆன்மீக மையமாகும்.</span>
-      </p>
-      <p>The <span class="highlight">Paduga</span> — the holy sandals of the Guru — are venerated here as the very living presence of the Master. Through their worship, devotees receive divine blessings, protection on their journey, and liberation from the burdens of karma.
-        <span class="ta-block">குரு பாதுகைகள் குருவின் சாக்ஷாத் சன்னிதியாக இங்கு வணங்கப்படுகின்றன. பாதுகை வழிபாட்டின் மூலம் பக்தர்கள் தெய்வீக ஆசீர்வாதம், பயண பாதுகாப்பு மற்றும் கர்ம விமோசனம் பெறுகின்றனர்.</span>
-      </p>
-      <p>Our centre welcomes all souls regardless of background or tradition. <span class="highlight">The Guru's grace makes no distinction.</span> The door of the Peedam is always open.
-        <span class="ta-block">எந்த பின்னணி அல்லது மரபைச் சார்ந்தவராயினும் அனைத்து ஆன்மாக்களையும் நம் மையம் வரவேற்கிறது. <span style="color:var(--saffron)">குருவின் அருள் எந்த வேறுபாடும் காட்டாது.</span> பீடத்தின் கதவு எப்போதும் திறந்திருக்கும்.</span>
-      </p>
+    <div class="section-title" data-lang="en">The Peedam</div>
+    <div class="section-title" data-lang="ta">பீடம்</div>
+    <div class="section-under" data-lang="en">Our Sacred Heritage</div>
+    <div class="section-under" data-lang="ta">எங்கள் புனித பாரம்பரியம்</div>
+    <div class="about-text" data-lang="en">
+      <p><span class="highlight">Shree Datta Guru Paduga Peedam</span> is a sacred spiritual centre established in the living tradition of Lord Dattatreya — the divine trinity of Brahma, Vishnu, and Shiva united in one form. The Peedam exists as a place where seekers of all paths may draw near to the eternal flame of Guru's grace.</p>
+      <p>The Paduga — the holy sandals of the Guru — are venerated here as the very presence of the living Master. Through the worship of the Padugas, devotees receive divine blessings, protection on their spiritual journey, and the dissolution of obstacles placed by karma.</p>
+      <p>Our centre welcomes all souls regardless of background or tradition. Whether you come for the first time or have walked this path for decades, <span class="highlight">the Guru's grace makes no distinction</span>. The door of the Peedam is always open.</p>
     </div>
-    <div class="datta-card">
-      <div class="datta-icon">🔱</div>
-      <div>
-        <h3>Lord Dattatreya — The Adi Guru<span class="ta">ஸ்ரீ தத்தாத்ரேயர் — ஆதி குரு</span></h3>
-        <p>Dattatreya is revered as the first Guru of all creation — born to sage Atri and Anasuya, embodying the combined essence of the Trimurti. He is depicted with three heads representing Brahma, Vishnu, and Shiva, accompanied by four dogs symbolising the four Vedas, and a cow representing the earth.
-          <span class="ta">தத்தாத்ரேயர் அத்ரி முனிவருக்கும் அனசூயாவுக்கும் பிறந்து திருமூர்த்தியின் ஒருங்கிணைந்த சாரத்தை உள்ளடக்கிய சிருஷ்டியின் முதல் குருவாக வணங்கப்படுகிறார். மூன்று தலைகள், நான்கு வேதங்களை குறிக்கும் நான்கு நாய்கள் மற்றும் பூமியை குறிக்கும் ஒரு பசுவுடன் சித்தரிக்கப்படுகிறார்.</span>
-        </p>
-      </div>
+    <div class="about-text" data-lang="ta">
+      <p><span class="highlight">ஶ்ரீ தத்த குரு பாதுகா பீடம்</span> பகவான் தத்தாத்ரேயரின் வாழும் பாரம்பரியத்தில் நிறுவப்பட்ட புனித ஆன்மீக மையமாகும். அனைத்து வழிகளில் உள்ள தேடுபவர்களும் குருவின் அருளின் நித்திய சுடருக்கு அருகில் வரக்கூடிய இடமாக இந்த பீடம் விளங்குகிறது.</p>
+      <p>பாதுகை — குருவின் புனித செருப்புகள் — வாழும் குருவின் நேரடி இருப்பாக இங்கு வழிபடப்படுகின்றன. பக்தர்கள் தெய்வீக ஆசீர்வாதங்களை, தங்கள் ஆன்மீக பயணத்தில் பாதுகாப்பை, மற்றும் கர்மாவால் ஏற்படும் தடைகளின் கலைவைப் பெறுகிறார்கள்.</p>
+      <p>எங்கள் மையம் அனைத்து ஆன்மாக்களையும் வரவேற்கிறது. <span class="highlight">குருவின் அருள் வேற்றுமை பாராட்டுவதில்லை</span>. பீடத்தின் வாயில் எப்போதும் திறந்தே உள்ளது.</p>
     </div>
-  </div>
-</div>
-
-<!-- GURU -->
-<div id="page-guru" class="page">
-  <div class="section">
-    <div class="section-title">Our Guru<span class="ta">நம் குரு</span></div>
-    <div class="section-under">The Guiding Light<span class="ta">வழிகாட்டும் ஒளி</span></div>
-    <div class="guru-section">
-      <div class="guru-name">C.V. MahaBharathi<span class="ta">சி.வி. மகாபாரதி</span></div>
-      <div class="guru-title">Founder, Shree Datta Guru Paduga Peedam<span class="ta">நிறுவனர், ஸ்ரீ தத்த குரு பாதுகா பீடம்</span></div>
-      <div class="guru-story">
-        Sri C.V. MahaBharathi walked the same roads that every ordinary person walks — holding a desk job, carrying the quiet weight of daily struggles, and enduring the hardships that life places before us all without warning. He was not born into privilege or spiritual lineage. He was one among us.
-        <br><br>
-        Yet through the darkest seasons of his life — when the burdens of the world pressed heaviest — the grace of Lord Dattatreya found him. Not through grand visions or sudden miracles, but in the gentle, persistent way that truth always reveals itself: quietly, inevitably, in the stillness beneath suffering.
-        <br><br>
-        Transformed by this grace, Sri MahaBharathi renounced the comfort of an ordinary life and surrendered himself entirely to the service of humanity. He established the Shree Datta Guru Paduga Peedam not as a place of religion, but as a living space of pure spiritual consciousness — where every soul, regardless of their story, may encounter the same grace that healed him.
-        <br><br>
-        His message is simple: <em>"The Guru does not ask where you have been. He only asks — are you ready to come home?"</em>
-        <span class="ta">சி.வி. மகாபாரதி அவர்கள் ஒரு சாதாரண மனிதனாக வாழ்ந்தார் — அலுவலகப் பணி செய்து, வாழ்க்கையின் கஷ்டங்களை சகித்து, சாதாரண மனித வலிகளை உணர்ந்தார். ஆனால் அவரது வாழ்வின் இருண்ட காலங்களில், தத்தாத்ரேயரின் திருவருள் அவரை தேடி வந்தது. அந்த அருளால் உருமாறிய அவர், சாதாரண வாழ்க்கையை துறந்து மனிதகுல சேவைக்காக தன்னையே அர்ப்பணித்தார். அனைத்து உயிர்களுக்கும் தூய ஆன்மீக அனுபவம் கிடைக்க வேண்டும் என்ற நோக்கில் இந்த பீடத்தை நிறுவினார். அவரது செய்தி எளிமையானது: குரு நீங்கள் எங்கிருந்து வந்தீர்கள் என்று கேட்கமாட்டார் — நீங்கள் வர தயாரா என்று மட்டுமே கேட்பார்.</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SEVA -->
-<div id="page-seva" class="page">
-  <div class="section">
-    <div class="section-title">Seva &amp; Programmes<span class="ta">சேவை மற்றும் நிகழ்ச்சிகள்</span></div>
-    <div class="section-under">Ways to Participate<span class="ta">பங்கேற்கும் வழிகள்</span></div>
-    <div class="tabs">
-      <button class="tab-btn active" onclick="showTab('rituals',this)">Rituals<span class="ta">சடங்குகள்</span></button>
-      <button class="tab-btn" onclick="showTab('festivals',this)">Festivals<span class="ta">திருவிழாக்கள்</span></button>
-      <button class="tab-btn" onclick="showTab('satsang',this)">Satsang<span class="ta">சத்சங்கம்</span></button>
-    </div>
-    <div id="tab-rituals" class="tab-panel active">
-      <div class="card-grid">
-        <div class="card"><div class="card-icon">🌅</div><h4>Prabhata Puja<span class="ta">பிரபாத பூஜை</span></h4><p>Morning worship at sunrise with Vedic hymns.<span class="ta">சூரிய உதயத்தில் வேத மந்திரங்களுடன் காலை வழிபாடு.</span></p></div>
-        <div class="card"><div class="card-icon">🕯️</div><h4>Sayam Arati<span class="ta">சாயம் ஆரத்தி</span></h4><p>Evening lamp offering at dusk with devotional singing.<span class="ta">மாலையில் பக்தி பாடல்களுடன் தீப ஆரத்தி.</span></p></div>
-        <div class="card"><div class="card-icon">🌸</div><h4>Abhishekam<span class="ta">அபிஷேகம்</span></h4><p>Sacred bathing of the deity with milk, honey and sacred waters.<span class="ta">பால், தேன் மற்றும் புனித நீரால் அபிஷேகம்.</span></p></div>
-        <div class="card"><div class="card-icon">📿</div><h4>Sahasranama Archana<span class="ta">சஹஸ்ரநாம அர்ச்சனை</span></h4><p>Chanting the thousand names of Lord Dattatreya.<span class="ta">தத்தாத்ரேயரின் ஆயிரம் நாமங்கள் சொல்லி அர்ச்சனை.</span></p></div>
-      </div>
-    </div>
-    <div id="tab-festivals" class="tab-panel">
-      <div class="card-grid">
-        <div class="card"><div class="card-icon">🌕</div><h4>Guru Purnima<span class="ta">குரு பூர்ணிமா</span></h4><p>Grand celebration of the Guru-disciple bond with special puja.<span class="ta">குரு-சிஷ்ய உறவின் மகா கொண்டாட்டம்.</span></p></div>
-        <div class="card"><div class="card-icon">✨</div><h4>Datta Jayanti<span class="ta">தத்த ஜயந்தி</span></h4><p>Birthday of Lord Dattatreya with all-night kirtan.<span class="ta">தத்தாத்ரேயரின் திருவிழா இரவு முழுவதும் கீர்த்தனை.</span></p></div>
-        <div class="card"><div class="card-icon">🪔</div><h4>Deepavali<span class="ta">தீபாவளி</span></h4><p>Festival of lights with lamp seva and community gathering.<span class="ta">தீப சேவை மற்றும் சமூக கூட்டத்துடன் தீபாவளி.</span></p></div>
-        <div class="card"><div class="card-icon">🌿</div><h4>Navaratri<span class="ta">நவராத்திரி</span></h4><p>Nine nights of devotion with special programmes each evening.<span class="ta">ஒன்பது இரவுகள் பக்தியுடன் தினமும் சிறப்பு நிகழ்ச்சிகள்.</span></p></div>
-      </div>
-    </div>
-    <div id="tab-satsang" class="tab-panel">
-      <div class="card-grid">
-        <div class="card"><div class="card-icon">🪈</div><h4>Bhajan Satsang<span class="ta">பஜனை சத்சங்கம்</span></h4><p>Every Sunday evening — devotional singing open to all.<span class="ta">ஒவ்வொரு ஞாயிற்றுக்கிழமை மாலையும் — அனைவருக்கும் திறந்தது.</span></p></div>
-        <div class="card"><div class="card-icon">📖</div><h4>Discourse<span class="ta">சொற்பொழிவு</span></h4><p>Monthly readings from Guru Charitra and Avadhuta Gita.<span class="ta">மாதந்தோறும் குரு சரித்திரம் மற்றும் அவதூத கீதை வாசிப்பு.</span></p></div>
-        <div class="card"><div class="card-icon">🧘</div><h4>Dhyana Shibir<span class="ta">தியான சிபிர்</span></h4><p>Meditation retreats held quarterly — register in advance.<span class="ta">காலாண்டு தியான முகாம் — முன்பதிவு அவசியம்.</span></p></div>
-        <div class="card"><div class="card-icon">🌱</div><h4>Anna Seva<span class="ta">அன்ன சேவை</span></h4><p>Free meal offered every Thursday, the auspicious day of Guru.<span class="ta">வியாழக்கிழமை தினமும் இலவச உணவு வழங்கல்.</span></p></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TIMINGS -->
-<div id="page-timings" class="page">
-  <div class="section">
-    <div class="section-title">Darshan Timings<span class="ta">தரிசன நேரம்</span></div>
-    <div class="section-under">Temple Hours<span class="ta">கோவில் நேரங்கள்</span></div>
-    <div class="timings-wrap">
-      <table class="timings-table">
-        <thead><tr>
-          <th>Session<span class="ta">நேர்வு</span></th>
-          <th>Time<span class="ta">நேரம்</span></th>
-          <th>Days<span class="ta">நாட்கள்</span></th>
-        </tr></thead>
-        <tbody>
-          <tr><td>Morning Darshan<span class="ta">காலை தரிசனம்</span></td><td>9:00 AM – 7:00 PM</td><td>Daily<span class="ta">தினமும்</span></td></tr>
-          <tr><td>Prabhata Puja<span class="ta">பிரபாத பூஜை</span></td><td>9:30 AM</td><td>Daily<span class="ta">தினமும்</span></td></tr>
-          <tr><td>Sayam Arati<span class="ta">சாயம் ஆரத்தி</span></td><td>6:30 PM</td><td>Daily<span class="ta">தினமும்</span></td></tr>
-          <tr><td>Bhajan Satsang<span class="ta">பஜனை சத்சங்கம்</span></td><td>5:00 PM – 7:00 PM</td><td><span class="tag">Sunday / ஞாயிறு</span></td></tr>
-          <tr><td>Anna Seva<span class="ta">அன்ன சேவை</span></td><td>12:00 PM</td><td><span class="tag">Thursday / வியாழன்</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="timings-note">
-      Special timings apply on festival days and Ekadashi. Please check our notice board for updates during Guru Purnima and Datta Jayanti.
-      <span class="ta">திருவிழா நாட்கள் மற்றும் ஏகாதசியில் சிறப்பு நேரங்கள் பின்பற்றப்படும். குரு பூர்ணிமா மற்றும் தத்த ஜயந்தியில் அறிவிப்பு பலகையை பாருங்கள்.</span>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<div id="page-contact" class="page">
-  <div class="section">
-    <div class="section-title">Visit &amp; Connect<span class="ta">வருக &amp; தொடர்பு கொள்க</span></div>
-    <div class="section-under">We Welcome You<span class="ta">நாங்கள் உங்களை வரவேற்கிறோம்</span></div>
-    <div class="contact-grid">
-      <div class="contact-item">
-        <h4>📍 Address<span class="ta">முகவரி</span></h4>
-        <p>
-          C.V. MahaBharathi<br>
-          Beeshma Guru Nilayam<br>
-          150/6, Sri Velavan Nagar,<br>
-          Kalaramani, Modachur,<br>
-          Gobichettipalayam (TK)<br>
-          Erode (DT) – 638476<br>
-          Tamil Nadu
-          <span class="ta">சி.வி. மகாபாரதி<br>பீஷ்ம குரு நிலயம்<br>150/6, ஸ்ரீ வேலவன் நகர்,<br>கலாரமணி, மோடாச்சூர்,<br>கோபிசெட்டிபாளையம் (வ.கி)<br>ஈரோடு (மா) – 638476<br>தமிழ்நாடு</span>
-        </p>
-      </div>
-      <div class="contact-item">
-        <h4>📞 Phone<span class="ta">தொலைபேசி</span></h4>
-        <p>
-          <a href="tel:+919578474466" style="color:var(--saffron);text-decoration:none;font-size:16px;font-weight:600">+91 95784 74466</a><br>
-          Available during darshan hours<br>9:00 AM – 7:00 PM
-          <span class="ta">தரிசன நேரத்தில் கிடைக்கும்<br>காலை 9 மணி – மாலை 7 மணி</span>
-        </p>
-      </div>
-      <div class="contact-item">
-        <h4>🕐 Darshan Hours<span class="ta">தரிசன நேரம்</span></h4>
-        <p>
-          Daily: 9:00 AM – 7:00 PM<br>
-          Open all days of the year
-          <span class="ta">தினமும்: காலை 9 – மாலை 7<br>ஆண்டு முழுவதும் திறந்திருக்கும்</span>
-        </p>
-      </div>
-      <div class="contact-item">
-        <h4>🚗 How to Reach<span class="ta">எப்படி வருவது</span></h4>
-        <p>
-          Located in Modachur near<br>Gobichettipalayam, Erode District
-          <span class="ta">கோபிசெட்டிபாளையம் அருகே<br>மோடாச்சூரில் அமைந்துள்ளது</span>
-        </p>
-      </div>
-    </div>
-    <div style="text-align:center">
-      <a class="map-btn" href="https://maps.google.com/?q=Modachur+Gobichettipalayam+Erode+Tamil+Nadu" target="_blank">
-        📍 Open in Google Maps
-      </a>
-    </div>
-    <div class="contact-tagline">
-      ALL ARE WELCOME · COME AS YOU ARE · THE GURU'S GRACE AWAITS
-      <span class="ta">அனைவரும் வரவேற்கப்படுகிறீர்கள் · குருவின் அருள் காத்திருக்கிறது</span>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <div class="footer-om">
-    ॐ नमो भगवते दत्तात्रेयाय
-    <span class="ta">ஓம் நமோ பகவதே தத்தாத்ரேயாய</span>
-  </div>
-  <p>Shree Datta Guru Paduga Peedam · Modachur, Erode · Tamil Nadu</p>
-  <p style="margin-top:4px">+91 95784 74466</p>
-</footer>
-
-<script>
-function showPage(name,el){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  var t=document.getElementById('page-'+name);
-  if(t)t.classList.add('active');
-  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
-  if(el)el.classList.add('active');
-  document.getElementById('navLinks').classList.remove('open');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function showTab(name,el){
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  var t=document.getElementById('tab-'+name);
-  if(t)t.classList.add('active');
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  if(el)el.classList.add('active');
-}
-function toggleMenu(){
-  document.getElementById('navLinks').classList.toggle('open');
-}
-function setLang(lang,el){
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-  var taEls=document.querySelectorAll('.ta,.ta-block');
-  taEls.forEach(function(e){
-    if(lang==='en')e.style.display='none';
-    else e.style.display='';
-  });
-  var enEls=document.querySelectorAll('.en-only');
-  enEls.forEach(function(e){
-    e.style.display=lang==='ta'?'none':'';
-  });
-}
-</script>
-</body>
-</html>
+    <div class="datta-img-wrap">
+      <img class="datta-img" src="data:image/webp;base64,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
