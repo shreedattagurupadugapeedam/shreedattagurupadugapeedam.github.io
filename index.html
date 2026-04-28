@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shree Datta Guru Paduga Peedam · ஶ்ரீ தத்த குரு பாதுகா பீடம்</title>
+  <title>Sree Datta Guru Paduga Peedam · ஶ்ரீ தத்தா குரு பாதுகா பீடம்</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -66,7 +68,9 @@
       padding: 0 2.5rem;
       border-bottom: 1px solid var(--gold);
     }
-    .nav-logo { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; letter-spacing: 0.08em; padding: 14px 0; line-height: 1.45; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; letter-spacing: 0.08em; padding: 8px 0; line-height: 1.45; }
+    .nav-logo img { height: 72px; width: 72px; border-radius: 50%; object-fit: contain; background: #FFD700; flex-shrink: 0; display: block; }
+    .nav-logo-text { display: flex; flex-direction: column; }
     .nav-right { display: flex; align-items: center; gap: 24px; }
     .nav-links { display: flex; gap: 28px; }
     .nav-links a {
@@ -208,6 +212,8 @@
     /* ── MOBILE ── */
     @media (max-width: 760px) {
       nav { padding: 0 1.25rem; }
+      .nav-logo { font-size: 11px; gap: 10px; }
+      .nav-logo img { height: 54px; width: 54px; }
       .hero h1 { font-size: 21px; }
       .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--deep); padding: 1rem 2rem 1.5rem; gap: 0; border-bottom: 1px solid var(--gold); }
       .nav-links.open { display: flex; }
@@ -226,8 +232,11 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <span data-lang="en">Shree Datta Guru<br>Paduga Peedam</span>
-    <span data-lang="ta">ஶ்ரீ தத்த குரு<br>பாதுகா பீடம்</span>
+    <img src="logo.png" alt="Sree Datta Guru Paduga Peedam" />
+    <div class="nav-logo-text">
+      <span data-lang="en">Sree Datta Guru<br>Paduga Peedam</span>
+      <span data-lang="ta">ஶ்ரீ தத்தா குரு<br>பாதுகா பீடம்</span>
+    </div>
   </div>
   <div class="nav-right">
     <div class="nav-links" id="navLinks">
@@ -279,8 +288,8 @@
     </svg>
     <div class="hero-content">
       <div class="om-symbol">ॐ</div>
-      <h1 data-lang="en">Shree Datta Guru Paduga Peedam</h1>
-      <h1 data-lang="ta">ஶ்ரீ தத்த குரு பாதுகா பீடம்</h1>
+      <h1 data-lang="en">Sree Datta Guru Paduga Peedam</h1>
+      <h1 data-lang="ta">ஶ்ரீ தத்தா குரு பாதுகா பீடம்</h1>
       <div class="hero-sub" data-lang="en">A Sacred Abode of Lord Dattatreya</div>
       <div class="hero-sub" data-lang="ta">பகவான் தத்தாத்ரேயரின் புனித இருப்பிடம்</div>
       <div class="hero-verse" data-lang="en">
@@ -314,7 +323,7 @@
         <h4 data-lang="en">Guru Purnima</h4>
         <h4 data-lang="ta">குரு பூர்ணிமா</h4>
         <p data-lang="en">Grand celebrations honouring the Datta Guru lineage with special rituals.</p>
-        <p data-lang="ta">தத்த குரு பரம்பரையை சிறப்பு சடங்குகளுடன் கௌரவிக்கும் பெருங்கொண்டாட்டம்.</p>
+        <p data-lang="ta">தத்தா குரு பரம்பரையை சிறப்பு சடங்குகளுடன் கௌரவிக்கும் பெருங்கொண்டாட்டம்.</p>
       </div>
       <div class="card">
         <div class="card-icon">🌿</div>
@@ -343,12 +352,12 @@
     <div class="section-under" data-lang="ta">எங்கள் புனித பாரம்பரியம்</div>
 
     <div class="about-text" data-lang="en">
-      <p><span class="highlight">Shree Datta Guru Paduga Peedam</span> is a sacred spiritual centre established in the living tradition of Lord Dattatreya — the divine trinity of Brahma, Vishnu, and Shiva united in one form. The Peedam exists as a place where seekers of all paths may draw near to the eternal flame of Guru's grace.</p>
+      <p><span class="highlight">Sree Datta Guru Paduga Peedam</span> is a sacred spiritual centre established in the living tradition of Lord Dattatreya — the divine trinity of Brahma, Vishnu, and Shiva united in one form. The Peedam exists as a place where seekers of all paths may draw near to the eternal flame of Guru's grace.</p>
       <p>The Paduga — the holy sandals of the Guru — are venerated here as the very presence of the living Master. Through the worship of the Padugas, devotees receive divine blessings, protection on their spiritual journey, and the dissolution of obstacles placed by karma.</p>
       <p>Our centre welcomes all souls regardless of background or tradition. Whether you come for the first time or have walked this path for decades, <span class="highlight">the Guru's grace makes no distinction</span>. The door of the Peedam is always open.</p>
     </div>
     <div class="about-text" data-lang="ta">
-      <p><span class="highlight">ஶ்ரீ தத்த குரு பாதுகா பீடம்</span> பகவான் தத்தாத்ரேயரின் வாழும் பாரம்பரியத்தில் நிறுவப்பட்ட புனித ஆன்மீக மையமாகும் — பிரம்மா, விஷ்ணு மற்றும் சிவன் ஒரே வடிவில் இணைந்த தெய்வீக மும்மூர்த்தி. அனைத்து வழிகளில் உள்ள தேடுபவர்களும் குருவின் அருளின் நித்திய சுடருக்கு அருகில் வரக்கூடிய இடமாக இந்த பீடம் விளங்குகிறது.</p>
+      <p><span class="highlight">ஶ்ரீ தத்தா குரு பாதுகா பீடம்</span> பகவான் தத்தாத்ரேயரின் வாழும் பாரம்பரியத்தில் நிறுவப்பட்ட புனித ஆன்மீக மையமாகும் — பிரம்மா, விஷ்ணு மற்றும் சிவன் ஒரே வடிவில் இணைந்த தெய்வீக மும்மூர்த்தி. அனைத்து வழிகளில் உள்ள தேடுபவர்களும் குருவின் அருளின் நித்திய சுடருக்கு அருகில் வரக்கூடிய இடமாக இந்த பீடம் விளங்குகிறது.</p>
       <p>பாதுகை — குருவின் புனித செருப்புகள் — வாழும் குருவின் நேரடி இருப்பாக இங்கு வழிபடப்படுகின்றன. பாதுகைகளை வழிபடுவதன் மூலம், பக்தர்கள் தெய்வீக ஆசீர்வாதங்களை, தங்கள் ஆன்மீக பயணத்தில் பாதுகாப்பை, மற்றும் கர்மாவால் ஏற்படும் தடைகளின் கலைவைப் பெறுகிறார்கள்.</p>
       <p>எங்கள் மையம் பின்னணி அல்லது பாரம்பரியத்தைப் பொருட்படுத்தாமல் அனைத்து ஆன்மாக்களையும் வரவேற்கிறது. நீங்கள் முதன்முறையாக வந்தாலும் அல்லது பல தசாப்தங்களாக இந்த பாதையில் நடந்து வந்தாலும், <span class="highlight">குருவின் அருள் வேற்றுமை பாராட்டுவதில்லை</span>. பீடத்தின் வாயில் எப்போதும் திறந்தே உள்ளது.</p>
     </div>
@@ -432,7 +441,7 @@
         </div>
         <div class="card">
           <div class="card-icon">✨</div>
-          <h4 data-lang="en">Datta Jayanti</h4><h4 data-lang="ta">தத்த ஜெயந்தி</h4>
+          <h4 data-lang="en">Datta Jayanti</h4><h4 data-lang="ta">தத்தா ஜெயந்தி</h4>
           <p data-lang="en">The birthday of Lord Dattatreya observed with all-night kirtan and prasad distribution.</p>
           <p data-lang="ta">பகவான் தத்தாத்ரேயரின் ஜென்ம தினம் — இரவு முழுவதும் கீர்த்தனை மற்றும் பிரசாத விநியோகத்துடன் கொண்டாடப்படுகிறது.</p>
         </div>
@@ -542,7 +551,7 @@
       Special timings apply on festival days and Ekadashi. Please contact the centre or follow our notice board for updates during major celebrations such as Guru Purnima and Datta Jayanti.
     </div>
     <div class="timings-note" data-lang="ta">
-      திருவிழா நாட்கள் மற்றும் ஏகாதசி அன்று சிறப்பு நேரங்கள் பின்பற்றப்படும். குரு பூர்ணிமா மற்றும் தத்த ஜெயந்தி போன்ற பெரும் கொண்டாட்டங்களின் போது புதுப்பிப்புகளுக்கு மையத்தைத் தொடர்பு கொள்ளவும் அல்லது எங்கள் அறிவிப்புப் பலகையைப் பாருங்கள்.
+      திருவிழா நாட்கள் மற்றும் ஏகாதசி அன்று சிறப்பு நேரங்கள் பின்பற்றப்படும். குரு பூர்ணிமா மற்றும் தத்தா ஜெயந்தி போன்ற பெரும் கொண்டாட்டங்களின் போது புதுப்பிப்புகளுக்கு மையத்தைத் தொடர்பு கொள்ளவும் அல்லது எங்கள் அறிவிப்புப் பலகையைப் பாருங்கள்.
     </div>
   </div>
 </div>
@@ -558,23 +567,23 @@
     <div class="contact-grid">
       <div class="contact-item">
         <h4>📍 <span data-lang="en">Location</span><span data-lang="ta">இடம்</span></h4>
-        <p data-lang="en">Shree Datta Guru Paduga Peedam<br>[Your Address Line 1]<br>[City, State, PIN]</p>
-        <p data-lang="ta">ஶ்ரீ தத்த குரு பாதுகா பீடம்<br>[உங்கள் முகவரி வரி 1]<br>[நகரம், மாநிலம், பின்கோடு]</p>
+        <p data-sheet="address" data-lang="en">Sree Datta Guru Paduga Peedam<br>[Your Address Line 1]<br>[City, State, PIN]</p>
+        <p data-sheet="address" data-lang="ta">ஶ்ரீ தத்தா குரு பாதுகா பீடம்<br>[உங்கள் முகவரி வரி 1]<br>[நகரம், மாநிலம், பின்கோடு]</p>
       </div>
       <div class="contact-item">
         <h4>📞 <span data-lang="en">Phone</span><span data-lang="ta">தொலைபேசி</span></h4>
-        <p data-lang="en">[Your Phone Number]<br>Available during darshan hours</p>
-        <p data-lang="ta">[உங்கள் தொலைபேசி எண்]<br>தரிசன நேரங்களில் கிடைக்கும்</p>
+        <p data-sheet="phone" data-lang="en">[Your Phone Number]<br>Available during darshan hours</p>
+        <p data-sheet="phone" data-lang="ta">[உங்கள் தொலைபேசி எண்]<br>தரிசன நேரங்களில் கிடைக்கும்</p>
       </div>
       <div class="contact-item">
         <h4>✉️ <span data-lang="en">Email</span><span data-lang="ta">மின்னஞ்சல்</span></h4>
-        <p data-lang="en">[your@email.com]<br>We respond within 2 days</p>
-        <p data-lang="ta">[your@email.com]<br>2 நாட்களுக்குள் பதிலளிப்போம்</p>
+        <p data-sheet="email" data-lang="en">[your@email.com]<br>We respond within 2 days</p>
+        <p data-sheet="email" data-lang="ta">[your@email.com]<br>2 நாட்களுக்குள் பதிலளிப்போம்</p>
       </div>
       <div class="contact-item">
         <h4>🕐 <span data-lang="en">Best Time to Call</span><span data-lang="ta">அழைக்க சிறந்த நேரம்</span></h4>
-        <p data-lang="en">Weekdays: 9 AM &ndash; 11 AM<br>or Evenings: 5 PM &ndash; 7 PM</p>
-        <p data-lang="ta">வார நாட்கள்: காலை 9 மணி &ndash; 11 மணி<br>அல்லது மாலை: 5 மணி &ndash; 7 மணி</p>
+        <p data-sheet="best_time" data-lang="en">Weekdays: 9 AM &ndash; 11 AM<br>or Evenings: 5 PM &ndash; 7 PM</p>
+        <p data-sheet="best_time" data-lang="ta">வார நாட்கள்: காலை 9 மணி &ndash; 11 மணி<br>அல்லது மாலை: 5 மணி &ndash; 7 மணி</p>
       </div>
     </div>
     <div class="contact-tagline" data-lang="en">ALL ARE WELCOME · COME AS YOU ARE · THE GURU'S GRACE AWAITS</div>
@@ -585,8 +594,8 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-om">ॐ नमो भगवते दत्तात्रेयाय</div>
-  <p data-lang="en">Shree Datta Guru Paduga Peedam &middot; All Rights Reserved</p>
-  <p data-lang="ta">ஶ்ரீ தத்த குரு பாதுகா பீடம் &middot; அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை</p>
+  <p data-lang="en">Sree Datta Guru Paduga Peedam &middot; All Rights Reserved</p>
+  <p data-lang="ta">ஶ்ரீ தத்தா குரு பாதுகா பீடம் &middot; அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை</p>
   <p style="margin-top:4px; font-style:italic; font-size:12px;">Om Namo Bhagavate Dattatreyaya</p>
 </footer>
 
@@ -632,6 +641,71 @@
     try { saved = localStorage.getItem('peedam-lang') || 'ta'; } catch (e) {}
     setLang(saved);
   })();
+</script>
+
+<!-- ─── GOOGLE SHEETS LIVE CONTENT ───
+     Edit your sheet → refresh page → content updates.
+     Full setup instructions: see GOOGLE_SHEETS_INTEGRATION.md
+-->
+<script>
+  // Paste your "Publish to web → CSV" URL between the quotes below.
+  // Leave it as "" to disable the sheet integration (page will use the
+  // static text already in the HTML).
+  const SHEET_CSV_URL = "";
+
+  function parseCSV(text) {
+    const rows = [];
+    let cur = [], field = "", inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (inQuotes) {
+        if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+        else if (c === '"') { inQuotes = false; }
+        else { field += c; }
+      } else {
+        if (c === '"') inQuotes = true;
+        else if (c === ',') { cur.push(field); field = ""; }
+        else if (c === '\n' || c === '\r') {
+          if (field !== "" || cur.length) { cur.push(field); rows.push(cur); cur = []; field = ""; }
+          if (c === '\r' && text[i + 1] === '\n') i++;
+        } else { field += c; }
+      }
+    }
+    if (field !== "" || cur.length) { cur.push(field); rows.push(cur); }
+    return rows;
+  }
+
+  async function loadSheetContent() {
+    if (!SHEET_CSV_URL) return;
+    try {
+      const res = await fetch(SHEET_CSV_URL + "&t=" + Date.now());
+      const csv = await res.text();
+      const rows = parseCSV(csv);
+      const [header, ...data] = rows;
+      const idxKey = header.indexOf("key");
+      const idxEn  = header.indexOf("english");
+      const idxTa  = header.indexOf("tamil");
+      if (idxKey < 0) return;
+
+      data.forEach(row => {
+        const key = (row[idxKey] || "").trim();
+        if (!key) return;
+        const en = (row[idxEn] || "").trim();
+        const ta = (row[idxTa] || "").trim();
+        if (en) {
+          document.querySelectorAll(`[data-sheet="${key}"][data-lang="en"]`)
+            .forEach(el => el.innerHTML = en.replace(/\n/g, "<br>"));
+        }
+        if (ta) {
+          document.querySelectorAll(`[data-sheet="${key}"][data-lang="ta"]`)
+            .forEach(el => el.innerHTML = ta.replace(/\n/g, "<br>"));
+        }
+      });
+    } catch (e) {
+      console.warn("Sheet content load failed; using static text.", e);
+    }
+  }
+  loadSheetContent();
 </script>
 </body>
 </html>
